@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Flex!</title>
+    <style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    main {
+        display: flex;
+
+        /*玄学*/
+        align-items: flex-start;
+
+        background-color: #eee;
+        border: 1px solid #999;
+        padding: 20px;
+    }
+    
+    .paper {
+        background-color: white;
+        border: 1px solid #999;
+        padding: 20px;
+    }
+    
+    .group-logo {
+        width: 200px;
+        display: flex;
+    }
+    
+    .group-intro {
+        flex: 1;
+        margin: 0 20px;
+    }
+    
+    .group-photos {
+        width: 120px;
+    }
+    
+    .photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .group-logo p {
+        margin: 0;
+        text-align: right;
+        flex: 1;
+    }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="group-logo paper">
+            <div class="photo">
+                <img src="logo.jpg" alt="logo">
+            </div>
+            <p>东成西就</p>
+        </div>
+        <div class="group-intro paper">
+            <img src="old-hunter.jpg" alt="the old driver">
+            <p style="text-align: right;">May you find your road on the waking drive.
+                <br><i>The Old Driver</i></p>
+        </div>
+        <div class="group-photos paper">
+            <div class="photo"><img src="sl.jpg" alt="sl"></div>
+            <div class="photo"><img src="" alt=""></div>
+            <div class="photo"><img src="" alt=""></div>
+            <div class="photo"><img src="" alt=""></div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Floating</title>
+    <style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
+    
+    main {
+        background-color: #eee;
+        border: 1px solid #999;
+        padding: 20px;
+        /*used to clearfix floating*/
+        overflow: auto;
+    }
+    
+    .paper {
+        background-color: white;
+        border: 1px solid #999;
+        padding: 20px;
+    }
+    
+    .group-name {
+        width: 200px;
+        float: left;
+        display: flex;
+    }
+    
+    .group-name p {
+        flex: 1;
+        margin: 0;
+    }
+    
+    .group-intro {
+        margin-left: 220px;
+        margin-right: 140px;
+    }
+    
+    .group-logo {
+        width: 120px;
+        float: right;
+    }
+    
+    .photo {
+        width: 80px;
+        height: 80px;
+        border: 1px solid #999;
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    p {
+        text-align: right;
+    }
+    
+    .group-logo.paper {
+        padding: 0;
+    }
+    
+    .group-logo .photo {
+        margin: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="group-name paper">
+            <div class="photo">
+                <img src="logo.jpg" alt="a group logo">
+            </div>
+            <p>东成西就</p>
+        </div>
+        <div class="group-logo paper">
+            <div class="photo"><img src="sl.jpg" alt="sl"></div>
+            <div class="photo"><img src="" alt=""></div>
+            <div class="photo"><img src="" alt=""></div>
+            <div class="photo"><img src="" alt=""></div>
+        </div>
+        <div class="group-intro paper">
+            <img src="old-hunter.jpg" alt="the old driver">
+            <p>May you find your road on the waking drive.
+                <br><i>The Old Driver</i></p>
+        </div>
+    </main>
+</body>
+
+</html>

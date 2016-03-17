@@ -1,0 +1,146 @@
+header, main .side-column form #submit-btn, .card, .table {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+* {
+  font-family: 'Noto Sans', sans-serif;
+  box-sizing: border-box; }
+
+body {
+  margin: 0; }
+
+.separator {
+  flex: 1; }
+
+header {
+  background-color: #4A148C;
+  height: 60px;
+  width: 100%;
+  display: flex; }
+  header h1 {
+    margin: 0 60px;
+    line-height: 60px;
+    color: white;
+    font-size: 26px; }
+  header nav a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    line-height: 60px;
+    padding: 0 20px;
+    font-size: 12px; }
+  header nav a:hover {
+    background-color: #7B1FA2; }
+
+main {
+  background-color: #fafafa;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start; }
+  main .main-column {
+    flex: 1;
+    margin-right: 20px; }
+    main .main-column article {
+      margin-bottom: 20px; }
+      main .main-column article h2 {
+        font-size: 16px;
+        color: grey; }
+      main .main-column article h3 {
+        font-weight: 400;
+        color: grey;
+        font-size: 14px; }
+      main .main-column article p {
+        text-indent: 40px; }
+      main .main-column article img {
+        width: 30%; }
+      main .main-column article li {
+        list-style-type: none; }
+    main .main-column .pictures {
+      display: flex;
+      flex-wrap: wrap; }
+      main .main-column .pictures .picture-container {
+        width: 130px;
+        border: 1px solid #999;
+        margin: 10px;
+        padding: 10px;
+        text-align: center; }
+        main .main-column .pictures .picture-container h4 {
+          margin: 5px 0; }
+        main .main-column .pictures .picture-container img {
+          width: 100%; }
+    main .main-column .table-container ol li {
+      list-style-type: decimal; }
+  main .side-column {
+    /* The way to keep fixed width flex box from shrinking */
+    flex: 0 0 400px; }
+    main .side-column h1 {
+      font-size: 20px;
+      border-left: 4px solid grey;
+      padding: 5px 10px; }
+    main .side-column form .form-content {
+      width: 100%;
+      display: flex;
+      line-height: 32px; }
+      main .side-column form .form-content .form-left {
+        flex: 0 0 140px;
+        font-size: 14px;
+        text-align: right; }
+      main .side-column form .form-content .form-right {
+        flex: 1;
+        margin-left: 10px;
+        margin-right: 20px; }
+        main .side-column form .form-content .form-right input[type='text'],
+        main .side-column form .form-content .form-right input[type='password'] {
+          width: 100%; }
+        main .side-column form .form-content .form-right span {
+          color: grey;
+          font-size: 12px; }
+        main .side-column form .form-content .form-right textarea {
+          width: 100%; }
+    main .side-column form #submit-btn {
+      width: 100%;
+      border-radius: 2px;
+      height: 36px;
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      background-color: #3F51B5;
+      color: white;
+      border: 0; }
+
+.card {
+  background-color: white;
+  padding: 20px; }
+
+.table {
+  /* credit to Google's Material Design
+                http://getmdl.io */
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 13px; }
+  .table th,
+  .table td {
+    padding: 12px 18px;
+    text-align: right;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.54);
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .table th:first-child,
+  .table td:first-child {
+    text-align: left; }
+
+footer {
+  background-color: black;
+  height: 60px;
+  width: 100%; }
+  footer p {
+    text-align: center;
+    line-height: 60px;
+    margin: 0;
+    color: white;
+    font-size: 12px; }
+
+/*# sourceMappingURL=style.css.map */

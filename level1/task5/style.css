@@ -106,7 +106,10 @@ main {
       text-transform: uppercase;
       background-color: #3F51B5;
       color: white;
-      border: 0; }
+      border: 0;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none; }
 
 .card {
   background-color: white;

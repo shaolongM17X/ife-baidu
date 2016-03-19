@@ -403,6 +403,22 @@ main {
         color: $primary-color;
         font-size: 17px;
     }
+    @mixin triangle-right($color,
+    $size) {
+        width: 0;
+        height: 0;
+        border-top: $size solid transparent;
+        border-left: $size*2 solid $color;
+        border-bottom: $size solid transparent;
+    }
+    @mixin triangle-left($color,
+    $size) {
+        width: 0;
+        height: 0;
+        border-top: $size solid transparent;
+        border-right: $size*2 solid $color;
+        border-bottom: $size solid transparent;
+    }
     .presentation {
         $section-height: 500px;
         $ad-width: 65%;
@@ -450,6 +466,14 @@ main {
             width: 100- $ad-width;
             text-align: center;
             .content-wrapper {
+                .triangle {
+                    $triangle-width: 18px;
+                    @include triangle-left(white,
+                    $triangle-width);
+                    position: absolute;
+                    left: -2*$triangle-width;
+                    top: (($section-height - $triangle-width)/2);
+                }
                 p {
                     width: 70%;
                     margin: 50px auto;
@@ -490,60 +514,66 @@ main {
         }
     }
     .more-details {
-    	$details-red:#e74f4d;
-    	$section-height: 500px;
-    	$sec1-width:33%;
-    	$sec3-width: 35%;
-    	height: $section-height;
-    	display: flex;
-    	.subsection {
-			width: $sec1-width;
-			@include vertical-center-div;
-			text-align: center;
-			$separation: 15px;
-			button {
-				padding: 10px 57px;
-    			font-size: 24px;
-    			margin-top: $separation + 10;
-			}
-			h1 {
-				margin: $separation 0;
-				font-weight: 100;
-				font-size: 26px;
-			}
-    	}
-
-    	#details-subsec1 {
-    		background-color:$details-red;
-    		h1 {
-    			color: white;
-    		}
-    		button {
-    			background-color: $details-red;
-    			border: 1px solid white;
-    			color: white;
-    		}
-    	}
-
-    	#details-subsec2 {
-    		span {
-    			background-color:$details-red;
-    		}
-    		flex: 1;
-    	}
-    	.photo {
-    		width: $sec3-width;
-    		background-image: url("assets/train.jpg");
-    		background-size:cover;
-    		position:relative;
-    		.cover {
-				position: absolute;
-				right: 0;
-				top:0;
-				width: 100%;
-				height: $section-height;
-				background-color: rgba(0,0,0,.4);
-    		}
-    	}
+        $details-red: #e74f4d;
+        $section-height: 500px;
+        $sec1-width: 33%;
+        $sec3-width: 35%;
+        height: $section-height;
+        display: flex;
+        .subsection {
+            width: $sec1-width;
+            @include vertical-center-div;
+            text-align: center;
+            $separation: 15px;
+            button {
+                padding: 10px 57px;
+                font-size: 24px;
+                margin-top: $separation + 10;
+            }
+            h1 {
+                margin: $separation 0;
+                font-weight: 100;
+                font-size: 26px;
+            }
+        }
+        #details-subsec1 {
+            background-color: $details-red;
+            h1 {
+                color: white;
+            }
+            button {
+                background-color: $details-red;
+                border: 1px solid white;
+                color: white;
+            }
+        }
+        #details-subsec2 {
+            span {
+                background-color: $details-red;
+            }
+            flex: 1;
+        }
+        .photo {
+            width: $sec3-width;
+            background-image: url("assets/train.jpg");
+            background-size: cover;
+            position: relative;
+            .cover {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: $section-height;
+                background-color: rgba(0, 0, 0, .4);
+            }
+            .triangle {
+                $triangle-width: 18px;
+                @include triangle-right(white,
+                $triangle-width);
+                position: absolute;
+                left: 0px;
+                top: (($section-height - $triangle-width)/2);
+            }
+        }
     }
 }

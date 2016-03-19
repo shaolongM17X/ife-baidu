@@ -13,11 +13,7 @@ $heiti: "SimHei",
 sans-serif;
 $songti: "SimSun",
 sans-serif;
-@mixin vertical-align {
-    position: relative;
-    top: 50%;
-    transform: translateY(25%);
-}
+
 
 * {
     box-sizing: border-box;
@@ -41,6 +37,7 @@ header {
     display: flex;
     .logo {
         margin-left: $header-margin;
+        line-height: $header-height;
         a {
             
             background-image: $new-world-logo;
@@ -48,11 +45,12 @@ header {
             width: $logo-size;
             height: $logo-size;
             display: inline-block;
-            @include vertical-align;
             margin-right: 5px;
+            vertical-align: text-bottom;
+
         }
         span {
-            line-height: $header-height;
+            
             font-size: 20px;
             font-family: $heiti;
         }
@@ -81,12 +79,10 @@ header {
     	font-size: 15px;
     	color: $header-red;
     	margin-left: 20px;
+    	line-height: $header-height;
     	i {
-    		@include vertical-align;
+    		vertical-align: text-bottom;
     	}
-		span {
-			line-height: $header-height;
-		}
 		margin-right: $header-margin;
     }
 }

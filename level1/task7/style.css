@@ -15,19 +15,17 @@ header {
   width: 100%;
   display: flex; }
   header .logo {
-    margin-left: 60px; }
+    margin-left: 60px;
+    line-height: 60px; }
     header .logo a {
       background-image: url("assets/logo.png");
       background-size: 100% 100%;
       width: 32px;
       height: 32px;
       display: inline-block;
-      position: relative;
-      top: 50%;
-      transform: translateY(25%);
-      margin-right: 5px; }
+      margin-right: 5px;
+      vertical-align: text-bottom; }
     header .logo span {
-      line-height: 60px;
       font-size: 20px;
       font-family: "SimHei", sans-serif; }
   header .separator {
@@ -47,13 +45,10 @@ header {
     font-size: 15px;
     color: #e74f4d;
     margin-left: 20px;
+    line-height: 60px;
     margin-right: 60px; }
     header .log-in i {
-      position: relative;
-      top: 50%;
-      transform: translateY(25%); }
-    header .log-in span {
-      line-height: 60px; }
+      vertical-align: text-bottom; }
 
 main .welcome {
   position: relative;

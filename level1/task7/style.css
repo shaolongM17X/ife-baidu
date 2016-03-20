@@ -415,5 +415,81 @@ main .more-details {
       position: absolute;
       left: 0px;
       top: 241px; }
+main .join-us .text {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  main .join-us .text .content-wrapper {
+    text-align: center; }
+    main .join-us .text .content-wrapper h1 {
+      margin: 0;
+      font-size: 27px;
+      font-weight: 100; }
+    main .join-us .text .content-wrapper p {
+      width: 40%;
+      display: inline-block;
+      color: #acadad; }
+    main .join-us .text .content-wrapper span {
+      background-color: #be4f48; }
+main .join-us .protocalsAndForm {
+  display: flex;
+  padding: 0 100px;
+  padding-bottom: 200px; }
+  main .join-us .protocalsAndForm .protocals {
+    width: 400px;
+    margin-right: 40px; }
+    main .join-us .protocalsAndForm .protocals article h1 {
+      font-size: 19px;
+      margin: 10px 0; }
+    main .join-us .protocalsAndForm .protocals article p {
+      color: #acadad;
+      line-height: 26px; }
+    main .join-us .protocalsAndForm .protocals article .show-more {
+      text-align: right;
+      line-height: 30px;
+      color: #acadad; }
+      main .join-us .protocalsAndForm .protocals article .show-more i {
+        vertical-align: -7px; }
+      main .join-us .protocalsAndForm .protocals article .show-more span {
+        line-height: 30px; }
+  main .join-us .protocalsAndForm .form {
+    flex: 1; }
+    main .join-us .protocalsAndForm .form .small-input {
+      height: 40px;
+      margin-bottom: 20px;
+      display: flex; }
+      main .join-us .protocalsAndForm .form .small-input input {
+        width: 50%;
+        margin-right: 20px;
+        background-color: #ededef;
+        border: 0;
+        display: inline-block;
+        font-size: 14px;
+        padding-left: 10px; }
+      main .join-us .protocalsAndForm .form .small-input input:last-child {
+        margin-right: 0; }
+    main .join-us .protocalsAndForm .form div:last-of-type {
+      margin-bottom: 0; }
+    main .join-us .protocalsAndForm .form .large-input {
+      width: 100%; }
+      main .join-us .protocalsAndForm .form .large-input textarea {
+        width: 100%;
+        height: 200px;
+        background-color: #ededef;
+        border: 0;
+        resize: none;
+        padding-left: 10px;
+        padding-top: 10px;
+        font-size: 14px; }
+    main .join-us .protocalsAndForm .form #submit-button {
+      width: 100%;
+      padding: 10px 0;
+      border: 0;
+      background-color: #ededef; }
+
+footer {
+  background-color: #32353e;
+  height: 300px; }
 
 /*# sourceMappingURL=style.css.map */

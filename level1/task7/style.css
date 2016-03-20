@@ -415,5 +415,139 @@ main .more-details {
       position: absolute;
       left: 0px;
       top: 241px; }
+main .join-us .text {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  main .join-us .text .content-wrapper {
+    text-align: center; }
+    main .join-us .text .content-wrapper h1 {
+      margin: 0;
+      font-size: 27px;
+      font-weight: 100; }
+    main .join-us .text .content-wrapper p {
+      width: 40%;
+      display: inline-block;
+      color: #acadad; }
+    main .join-us .text .content-wrapper span {
+      background-color: #be4f48; }
+main .join-us .protocalsAndForm {
+  display: flex;
+  padding: 0 100px;
+  padding-bottom: 200px; }
+  main .join-us .protocalsAndForm .protocals {
+    width: 400px;
+    margin-right: 40px; }
+    main .join-us .protocalsAndForm .protocals article h1 {
+      font-size: 19px;
+      margin: 10px 0; }
+    main .join-us .protocalsAndForm .protocals article p {
+      color: #acadad;
+      line-height: 26px; }
+    main .join-us .protocalsAndForm .protocals article .show-more {
+      text-align: right;
+      line-height: 30px;
+      color: #acadad; }
+      main .join-us .protocalsAndForm .protocals article .show-more i {
+        vertical-align: -7px; }
+      main .join-us .protocalsAndForm .protocals article .show-more span {
+        line-height: 30px; }
+  main .join-us .protocalsAndForm .form {
+    flex: 1; }
+    main .join-us .protocalsAndForm .form .small-input {
+      height: 40px;
+      margin-bottom: 20px;
+      display: flex; }
+      main .join-us .protocalsAndForm .form .small-input input {
+        width: 50%;
+        margin-right: 20px;
+        background-color: #ededef;
+        border: 0;
+        display: inline-block;
+        font-size: 14px;
+        padding-left: 10px; }
+      main .join-us .protocalsAndForm .form .small-input input:last-child {
+        margin-right: 0; }
+    main .join-us .protocalsAndForm .form div:last-of-type {
+      margin-bottom: 0; }
+    main .join-us .protocalsAndForm .form .large-input {
+      width: 100%; }
+      main .join-us .protocalsAndForm .form .large-input textarea {
+        width: 100%;
+        height: 200px;
+        background-color: #ededef;
+        border: 0;
+        resize: none;
+        padding-left: 10px;
+        padding-top: 10px;
+        font-size: 14px; }
+    main .join-us .protocalsAndForm .form #submit-button {
+      width: 100%;
+      padding: 10px 0;
+      border: 0;
+      background-color: #ededef;
+      margin-top: 18px;
+      font-size: 16px;
+      color: #787878; }
+
+footer {
+  background-color: #32353e;
+  padding: 130px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  footer .content-wrapper {
+    text-align: center; }
+    footer .content-wrapper h1 {
+      margin: 10px 0;
+      font-size: 28px;
+      color: white;
+      font-weight: 100; }
+    footer .content-wrapper p {
+      margin: 0;
+      color: white; }
+    footer .content-wrapper .email-address {
+      margin-top: 40px;
+      margin-bottom: 40px; }
+      footer .content-wrapper .email-address #email-add {
+        background-color: white;
+        width: 550px;
+        padding: 5px 5px;
+        height: 45px;
+        line-height: 45px;
+        border: 0; }
+      footer .content-wrapper .email-address .submit-button {
+        position: relative;
+        left: -3px;
+        top: 1px;
+        height: 45px;
+        line-height: 45px;
+        border: 0;
+        padding: 0 20px;
+        background-color: #707278;
+        letter-spacing: 10px;
+        text-indent: 10px;
+        color: white;
+        font-size: 17px; }
+    footer .content-wrapper .social-media {
+      text-align: center; }
+      footer .content-wrapper .social-media i {
+        color: white;
+        font-size: 32px;
+        margin: 0 15px; }
+  footer .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    color: white;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 100px;
+    background-color: #2f2f38; }
+    footer .footer-bar .separator {
+      flex: 1; }
 
 /*# sourceMappingURL=style.css.map */

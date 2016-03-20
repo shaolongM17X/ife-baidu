@@ -670,6 +670,9 @@ main {
 					padding: 10px 0;
 					border: 0;
 					background-color: $input-grey;
+					margin-top: $margin - 2;
+					font-size: 16px;
+					color: $primary-text-grey;
 				}
 			}
 		}
@@ -678,5 +681,70 @@ main {
 
 footer {
 	background-color: #32353e;
-	height:300px;
+	padding: 130px 0;
+	position:relative;
+	@include vertical-center-div;
+	.content-wrapper {
+		text-align: center;
+		h1 {
+			margin: 10px 0;
+			font-size: 28px;
+			color: white;
+			font-weight: 100;
+		}
+		p {
+			margin: 0;
+			color: white;
+		}
+		.email-address {
+			$input-height: 45px;
+			margin-top: 40px;
+			margin-bottom: 40px;
+			#email-add {
+				background-color: white;
+
+				width: 550px;
+				padding:5px 5px;
+				height: $input-height;
+				line-height:$input-height;
+				border:0;
+			}
+			.submit-button {
+				position:relative;
+				left: -3px;
+				top: 1px;
+				height: $input-height;
+				line-height: $input-height;
+				border:0;
+				padding:0 20px;
+				background-color: #707278;
+				letter-spacing: 10px;
+				text-indent: 10px;
+				color: white;
+				font-size: 17px;
+			}
+		}
+		.social-media {
+			text-align: center;
+			i {
+				color: white;
+				font-size: 32px;
+				margin: 0 15px;
+			}
+		}
+	}
+	.footer-bar {
+		position:absolute;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		color: white;
+		font-size: 14px;
+		width: 100%;
+		padding:10px 100px;
+		background-color: #2f2f38;
+		.separator {
+			flex:1;
+		}
+	}
 }

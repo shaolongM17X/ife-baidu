@@ -1,0 +1,167 @@
+$yahei: "Microsoft YaHei",
+STHeiti,
+MingLiu,
+sans-serif;
+$shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+0 3px 1px -2px rgba(0, 0, 0, 0.2),
+0 1px 5px 0 rgba(0, 0, 0, 0.12);
+$helvetica: "helvetica",
+sans-serif;
+$logo-size: 32px;
+$heiti: "SimHei",
+sans-serif;
+$songti: "SimSun",
+sans-serif;
+@mixin vertical-centering-flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: $yahei;
+}
+
+.separator-flex {
+    flex: 1;
+}
+
+body {
+    margin: 0;
+}
+
+$header-height: 64px;
+header {
+    z-index: 9999;
+    box-shadow: $shadow;
+    background-color: #2189bf;
+    width: 100%;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    padding-right: 100px;
+    .logo {
+        $logo-size: 40px;
+        width: $logo-size;
+        height: $logo-size;
+        background-image: url("assets/logo.png");
+        background-size: 100% 100%;
+    }
+    .search-bar {
+        $search-input-height: 30px;
+        border-radius: 50px;
+        height: $search-input-height;
+        background-color: white;
+        padding: 0 20px;
+        display: flex;
+        i {
+            line-height: $search-input-height;
+            color: #ababab;
+        }
+        input {
+            border-radius: 50px;
+            border: 0;
+            transition: width .5s;
+            width: 200px;
+        }
+        input:focus {
+            width: 250px;
+            outline: none;
+        }
+        margin-right: 20px;
+    }
+    i,
+    span {
+        color: white;
+        font-size: 14px;
+    }
+}
+
+$side-bar-width: 300px;
+.side-bar {
+    $sb-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    $secondary-color: #6e8096;
+    width: $side-bar-width;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding-top: $header-height + 20;
+    background-color: #2b2e3d;
+    box-shadow: $sb-shadow;
+    .user {
+        padding-left: 40px;
+        margin-bottom: 30px;
+        $color: #b9babe;
+        display: flex;
+        align-items: center;
+        .icon {
+            $icon-size: 60px;
+            display: flex;
+            align-items: center;
+            width: $icon-size;
+            height: $icon-size;
+            border-radius: 50%;
+            border: 2px solid $color;
+            margin-right: 20px;
+            $photo-size: 48px;
+            .user-photo {
+                width: $photo-size;
+                height: $photo-size;
+                display: inline-block;
+                background-image: url("assets/doge.jpeg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+                margin: 0 auto;
+            }
+        }
+        span {
+            color: white;
+        }
+    }
+    .user-info {
+        display: flex;
+        padding: 0 70px;
+        div {
+            width: 50%;
+        }
+        .watching {
+            border-right: 1px solid #313545;
+        }
+        span {
+            color: $secondary-color;
+            font-size: 14px;
+        }
+        .fans {
+            margin-left: 30px;
+        }
+    }
+    .data-lists {
+        list-style-type: none;
+        margin-top: 20px;
+        .data-list {
+            .list-title {
+                $height: 45px;
+                height: $height;
+                color: $secondary-color;
+                display: flex;
+                align-items: center;
+                i {
+                    margin-right: 10px;
+                }
+                span {
+                    display: inline-block;
+                }
+            }
+        }
+        .is-selected {
+        	display: initial;
+        }
+    }
+}

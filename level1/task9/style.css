@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", STHeiti, MingLiu, sans-serif; }
+
+.separator-flex {
+  flex: 1; }
+
+body {
+  margin: 0; }
+
+header {
+  z-index: 9999;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  background-color: #2189bf;
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+  padding-right: 100px; }
+  header .logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("assets/logo.png");
+    background-size: 100% 100%; }
+  header .search-bar {
+    border-radius: 50px;
+    height: 30px;
+    background-color: white;
+    padding: 0 20px;
+    display: flex;
+    margin-right: 20px; }
+    header .search-bar i {
+      line-height: 30px;
+      color: #ababab; }
+    header .search-bar input {
+      border-radius: 50px;
+      border: 0;
+      transition: width .5s;
+      width: 200px; }
+    header .search-bar input:focus {
+      width: 250px;
+      outline: none; }
+  header i,
+  header span {
+    color: white;
+    font-size: 14px; }
+
+.side-bar {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding-top: 84px;
+  background-color: #2b2e3d;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .side-bar .user {
+    padding-left: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center; }
+    .side-bar .user .icon {
+      display: flex;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #b9babe;
+      margin-right: 20px; }
+      .side-bar .user .icon .user-photo {
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+        background-image: url("assets/doge.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        margin: 0 auto; }
+    .side-bar .user span {
+      color: white; }
+  .side-bar .user-info {
+    display: flex;
+    padding: 0 70px; }
+    .side-bar .user-info div {
+      width: 50%; }
+    .side-bar .user-info .watching {
+      border-right: 1px solid #313545; }
+    .side-bar .user-info span {
+      color: #6e8096;
+      font-size: 14px; }
+    .side-bar .user-info .fans {
+      margin-left: 30px; }
+  .side-bar .data-lists {
+    list-style-type: none;
+    margin-top: 20px; }
+    .side-bar .data-lists .data-list .list-title {
+      height: 45px;
+      color: #6e8096;
+      display: flex;
+      align-items: center; }
+      .side-bar .data-lists .data-list .list-title i {
+        margin-right: 10px; }
+      .side-bar .data-lists .data-list .list-title span {
+        display: inline-block; }
+    .side-bar .data-lists .is-selected {
+      display: initial; }
+
+/*# sourceMappingURL=style.css.map */

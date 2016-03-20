@@ -143,25 +143,79 @@ $side-bar-width: 300px;
         }
     }
     .data-lists {
+        @mixin make-text-white {
+            i {
+                color: white;
+            }
+            span {
+                color: white;
+            }
+        }
+        padding: 0;
         list-style-type: none;
         margin-top: 20px;
         .data-list {
+
+            padding-left: 40px;
             .list-title {
                 $height: 45px;
                 height: $height;
-                color: $secondary-color;
                 display: flex;
                 align-items: center;
                 i {
                     margin-right: 10px;
+                    color: $secondary-color;
                 }
                 span {
                     display: inline-block;
+                    color: $secondary-color;
+                }
+            }
+            .file-lists {
+
+            	display: none;
+                padding-bottom: 10px;
+                list-style-type: none;
+                .file-list {
+                    .list-title {
+                        height: 30px;
+                        i {
+                            color: $secondary-color;
+                        }
+                        span {
+                            color: $secondary-color;
+                        }
+                    }
+                    .files {
+                        list-style-type: none;
+                        .file {
+                            color: $secondary-color;
+                            padding-left: 20px;
+                            .is-selected {
+                                @include make-text-white;
+                            }
+                            font-size: 16px;
+                            i {
+                                font-size: 16px;
+                            }
+                        }
+                    }
                 }
             }
         }
-        .is-selected {
-        	display: initial;
+        .data-is-selected {
+            background-color: #383d4d;
+            .list-title {
+                @include make-text-white;
+            }
+            .file-lists {
+            	display: block;
+                .file-list {
+                    .file-is-selected {
+                        @include make-text-white;
+                    }
+                }
+            }
         }
     }
 }

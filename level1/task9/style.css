@@ -391,7 +391,7 @@ main {
     main .data .others .calendar {
       width: 40%; }
       main .data .others .calendar .select-part {
-        margin-bottom: 10px;
+        margin-bottom: 35px;
         display: flex; }
         main .data .others .calendar .select-part select {
           margin-right: 5px; }
@@ -425,5 +425,32 @@ main {
           color: red; }
     main .data .others .best-seller {
       width: 60%; }
+      main .data .others .best-seller table {
+        width: 100%;
+        border-collapse: collapse; }
+        main .data .others .best-seller table td {
+          text-align: center;
+          padding: 5px 15px;
+          font-size: 13px;
+          border: 1px solid #6e8096; }
+          main .data .others .best-seller table td .wrapper {
+            display: flex;
+            align-items: center; }
+            main .data .others .best-seller table td .wrapper .bar {
+              width: 200px;
+              height: 3px;
+              background-color: #dcdcdc;
+              margin-right: 30px;
+              position: relative; }
+              main .data .others .best-seller table td .wrapper .bar .cover {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 3px;
+                background-color: red;
+                width: 170px; }
+        main .data .others .best-seller table td:last-child {
+          text-align: left;
+          padding-left: 20px; }
 
 /*# sourceMappingURL=style.css.map */

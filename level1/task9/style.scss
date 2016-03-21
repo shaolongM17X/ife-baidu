@@ -555,7 +555,7 @@ main {
             .calendar {
                 width: $calendar-width;
                 .select-part {
-                    margin-bottom: 10px;
+                    margin-bottom: 35px;
                     display: flex;
                     select {
                         margin-right: 5px;
@@ -603,6 +603,41 @@ main {
             }
             .best-seller {
                 width: 100 - $calendar-width;
+                table {
+                	width: 100%;
+                	border-collapse: collapse;
+                	td {
+                		text-align: center;
+                		padding: 5px 15px;
+                		font-size: 13px;
+                		border: 1px solid $secondary-color;
+                		.wrapper {
+                			.bar {
+                				$height: 3px;
+								width: 200px;
+								height: $height;
+								background-color: #dcdcdc;
+								margin-right: 30px;
+								position: relative;
+								.cover {
+									position: absolute;
+									left: 0;
+									top: 0;
+									height: $height;
+									background-color: red;
+									width: 170px;
+								}
+                			}
+                			display: flex;
+                			align-items: center;
+
+                		}
+                	}
+                	td:last-child {
+                		text-align: left;
+                		padding-left: 20px;
+                	}
+                }
             }
         }
     }

@@ -252,7 +252,6 @@ main {
     padding-right: $content-padding-lr;
     padding-top: $header-height + $file-path-height + $content-padding-top;
     width: 100%;
-    height: 998px;
     .card {
         border-radius: 2px;
         background-color: white;
@@ -331,18 +330,18 @@ main {
             }
         }
         .card {
-        	padding: 3px 0;
+            padding: 3px 0;
             margin-right: 5px;
             text-align: center;
             .time {
-            	font-size: 14px;
+                font-size: 14px;
             }
             .money {
-            	color: $secondary-color;
+                color: $secondary-color;
             }
             .price {
-            	font-size: 25px;
-            	color: #ec6500;
+                font-size: 25px;
+                color: #ec6500;
             }
         }
         .card:last-child {
@@ -351,11 +350,11 @@ main {
             align-items: center;
             justify-content: center;
             i {
-            	color: $primary-color;
-            	font-size: 36px;
+                color: $primary-color;
+                font-size: 36px;
             }
             span {
-            	font-size: 16px;
+                font-size: 16px;
             }
         }
         .adjustable {
@@ -363,6 +362,248 @@ main {
         }
         .is-selected {
             border-top: 4px solid $primary-color;
+        }
+    }
+    .data {
+        .statistics {
+            .title {
+                font-size: 14px;
+                display: inline-block;
+                margin-bottom: 3px;
+            }
+            .deals {
+                display: flex;
+                @mixin border-left-card($color) {
+                    border-left: 4px solid $color;
+                    .box {
+                        background-color: $color;
+                    }
+                }
+                .card {
+                    display: flex;
+                    margin-right: 30px;
+                    flex: 1;
+                    padding: 15px;
+                }
+                .card:last-child {
+                    margin-right: 0;
+                }
+                .green {
+                    @include border-left-card(#44b29e);
+                }
+                .blue {
+                    @include border-left-card(#388ac1);
+                }
+                .red {
+                    @include border-left-card(#cf4a36);
+                }
+                .yellow {
+                    @include border-left-card(#e2cd46);
+                }
+                .box {
+                    width: 70px;
+                    height: 50px;
+                }
+                .num {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    span {
+                        font-size: 13px;
+                    }
+                    span:last-child {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+        $focus-grey: #f4f5f7;
+        .details {
+            $title-height: 45px;
+            .card {
+                border: 0.5px solid #f4f5f7;
+                border-radius: 5px;
+                margin-right: 10px;
+                .title {
+                    height: $title-height;
+                    width: 100%;
+                    background-color: $focus-grey;
+                    padding-left: 30px;
+                    display: flex;
+                    align-items: center;
+                    span {
+                        font-size: 15px;
+                        color: $secondary-color;
+                    }
+                }
+                .main-content {
+                    border: 0.5px solid #f4f5f7;
+                    padding-top: 10px;
+                    padding-bottom: 30px;
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+            }
+            .projects {
+                display: flex;
+                $main-width: 65%;
+                .project {
+                    width: $main-width;
+                    .project-names {
+                        padding: 0;
+                        list-style-type: none;
+                        display: flex;
+                        margin-bottom: 0;
+                        .project-name {
+                            padding: 6px 25px;
+                            background-color: #ededf0;
+                            margin-right: 5px;
+                            font-size: 13px;
+                            border-bottom: 1px solid $secondary-color;
+                        }
+                        .is-selected {
+                            background-color: white;
+                            border: 1px solid $secondary-color;
+                            border-bottom: 1px solid white;
+                        }
+                    }
+                    .project-content {
+                        border: 1px solid $secondary-color;
+                        height: 300px;
+                        margin-top: -1px;
+                        table {
+                            border-collapse: collapse;
+                            .is-selected {
+                                background-color: $focus-grey;
+                            }
+                            td {
+                                border: 1px solid #dedfe0;
+                                padding: 10px 10px;
+                                font-size: 14px;
+                            }
+                        }
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+                .project-detail {
+                    align-self: stretch;
+                    width: 100 - $main-width;
+                    .card {
+                        margin-right: 0;
+                    }
+                    .main-content {
+                        form {
+                            label {
+                                color: #c7c6c6;
+                                font-size: 14px;
+                            }
+                            input {
+                                border: 0;
+                            }
+                            textarea {
+                                border: 0;
+                                border-top: 1px;
+                                resize: none;
+                                width: 100%;
+                                border-bottom: 1px solid $focus-grey;
+                                height: 165px;
+                            }
+                            textarea:focus,
+                            input:focus {
+                                outline: 0;
+                            }
+                            div {
+                                padding-left: 20px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                div {
+                                    padding: 0;
+                                }
+                            }
+                            .price-and-representative {
+                                border-top: 1px solid $focus-grey;
+                                border-bottom: 1px solid $focus-grey;
+                                display: flex;
+                                $price-width: 30%;
+                                .price {
+                                    input {
+                                        width: 100%;
+                                    }
+                                    border-right: 1px solid $focus-grey;
+                                }
+                                .representative {
+                                    padding-left: 20px;
+                                    input {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            .submit-part {
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .others {
+            display: flex;
+            $calendar-width: 40%;
+            .calendar {
+                width: $calendar-width;
+                .select-part {
+                    margin-bottom: 10px;
+                    display: flex;
+                    select {
+                        margin-right: 5px;
+                    }
+                    select:last-child {
+                        margin-right: 0;
+                    }
+                    #month {
+                        flex: 1;
+                    }
+                    input[type="button"] {
+                        background-color: white;
+                        border: 1px solid rgb(169, 169, 169);
+                    }
+                }
+                table {
+                	border-collapse: collapse;
+                    .days td {
+                        border-top: 1px solid $secondary-color;
+                        border-bottom: 1px solid $secondary-color;
+                        padding: 10px 0;
+                    }
+                    width: 100%;
+                    td {
+                        font-size: 12px;
+                        text-align: center;
+                        padding: 5px 0;
+                    }
+                    td span {
+                        display: block;
+                    }
+                    .special {
+                    	color: red;
+                    }
+                    .focus {
+                    	border: 1px solid #e2cd46;
+                    }
+                    td:nth-of-type(6) span:first-of-type {
+                    	color: red;
+                    }
+                    td:nth-of-type(7) span:first-of-type {
+                    	color: red;
+                    }
+                }
+            }
+            .best-seller {
+                width: 100 - $calendar-width;
+            }
         }
     }
 }

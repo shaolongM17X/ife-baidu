@@ -170,8 +170,7 @@ main {
   padding-left: 360px;
   padding-right: 60px;
   padding-top: 114px;
-  width: 100%;
-  height: 998px; }
+  width: 100%; }
   main .card {
     border-radius: 2px;
     background-color: white;
@@ -252,5 +251,179 @@ main {
       flex: 1; }
     main .time-price .is-selected {
       border-top: 4px solid #2189bf; }
+  main .data .statistics .title {
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 3px; }
+  main .data .statistics .deals {
+    display: flex; }
+    main .data .statistics .deals .card {
+      display: flex;
+      margin-right: 30px;
+      flex: 1;
+      padding: 15px; }
+    main .data .statistics .deals .card:last-child {
+      margin-right: 0; }
+    main .data .statistics .deals .green {
+      border-left: 4px solid #44b29e; }
+      main .data .statistics .deals .green .box {
+        background-color: #44b29e; }
+    main .data .statistics .deals .blue {
+      border-left: 4px solid #388ac1; }
+      main .data .statistics .deals .blue .box {
+        background-color: #388ac1; }
+    main .data .statistics .deals .red {
+      border-left: 4px solid #cf4a36; }
+      main .data .statistics .deals .red .box {
+        background-color: #cf4a36; }
+    main .data .statistics .deals .yellow {
+      border-left: 4px solid #e2cd46; }
+      main .data .statistics .deals .yellow .box {
+        background-color: #e2cd46; }
+    main .data .statistics .deals .box {
+      width: 70px;
+      height: 50px; }
+    main .data .statistics .deals .num {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      main .data .statistics .deals .num span {
+        font-size: 13px; }
+      main .data .statistics .deals .num span:last-child {
+        color: #6e8096; }
+  main .data .details .card {
+    border: 0.5px solid #f4f5f7;
+    border-radius: 5px;
+    margin-right: 10px; }
+    main .data .details .card .title {
+      height: 45px;
+      width: 100%;
+      background-color: #f4f5f7;
+      padding-left: 30px;
+      display: flex;
+      align-items: center; }
+      main .data .details .card .title span {
+        font-size: 15px;
+        color: #6e8096; }
+    main .data .details .card .main-content {
+      border: 0.5px solid #f4f5f7;
+      padding-top: 10px;
+      padding-bottom: 30px;
+      padding-left: 25px;
+      padding-right: 25px; }
+  main .data .details .projects {
+    display: flex; }
+    main .data .details .projects .project {
+      width: 65%; }
+      main .data .details .projects .project .project-names {
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        margin-bottom: 0; }
+        main .data .details .projects .project .project-names .project-name {
+          padding: 6px 25px;
+          background-color: #ededf0;
+          margin-right: 5px;
+          font-size: 13px;
+          border-bottom: 1px solid #6e8096; }
+        main .data .details .projects .project .project-names .is-selected {
+          background-color: white;
+          border: 1px solid #6e8096;
+          border-bottom: 1px solid white; }
+      main .data .details .projects .project .project-content {
+        border: 1px solid #6e8096;
+        height: 300px;
+        margin-top: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        main .data .details .projects .project .project-content table {
+          border-collapse: collapse; }
+          main .data .details .projects .project .project-content table .is-selected {
+            background-color: #f4f5f7; }
+          main .data .details .projects .project .project-content table td {
+            border: 1px solid #dedfe0;
+            padding: 10px 10px;
+            font-size: 14px; }
+    main .data .details .projects .project-detail {
+      align-self: stretch;
+      width: 35%; }
+      main .data .details .projects .project-detail .card {
+        margin-right: 0; }
+      main .data .details .projects .project-detail .main-content form label {
+        color: #c7c6c6;
+        font-size: 14px; }
+      main .data .details .projects .project-detail .main-content form input {
+        border: 0; }
+      main .data .details .projects .project-detail .main-content form textarea {
+        border: 0;
+        border-top: 1px;
+        resize: none;
+        width: 100%;
+        border-bottom: 1px solid #f4f5f7;
+        height: 165px; }
+      main .data .details .projects .project-detail .main-content form textarea:focus,
+      main .data .details .projects .project-detail .main-content form input:focus {
+        outline: 0; }
+      main .data .details .projects .project-detail .main-content form div {
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px; }
+        main .data .details .projects .project-detail .main-content form div div {
+          padding: 0; }
+      main .data .details .projects .project-detail .main-content form .price-and-representative {
+        border-top: 1px solid #f4f5f7;
+        border-bottom: 1px solid #f4f5f7;
+        display: flex; }
+        main .data .details .projects .project-detail .main-content form .price-and-representative .price {
+          border-right: 1px solid #f4f5f7; }
+          main .data .details .projects .project-detail .main-content form .price-and-representative .price input {
+            width: 100%; }
+        main .data .details .projects .project-detail .main-content form .price-and-representative .representative {
+          padding-left: 20px; }
+          main .data .details .projects .project-detail .main-content form .price-and-representative .representative input {
+            width: 100%; }
+      main .data .details .projects .project-detail .main-content form .submit-part {
+        display: flex;
+        align-items: center; }
+  main .data .others {
+    display: flex; }
+    main .data .others .calendar {
+      width: 40%; }
+      main .data .others .calendar .select-part {
+        margin-bottom: 10px;
+        display: flex; }
+        main .data .others .calendar .select-part select {
+          margin-right: 5px; }
+        main .data .others .calendar .select-part select:last-child {
+          margin-right: 0; }
+        main .data .others .calendar .select-part #month {
+          flex: 1; }
+        main .data .others .calendar .select-part input[type="button"] {
+          background-color: white;
+          border: 1px solid darkgray; }
+      main .data .others .calendar table {
+        border-collapse: collapse;
+        width: 100%; }
+        main .data .others .calendar table .days td {
+          border-top: 1px solid #6e8096;
+          border-bottom: 1px solid #6e8096;
+          padding: 10px 0; }
+        main .data .others .calendar table td {
+          font-size: 12px;
+          text-align: center;
+          padding: 5px 0; }
+        main .data .others .calendar table td span {
+          display: block; }
+        main .data .others .calendar table .special {
+          color: red; }
+        main .data .others .calendar table .focus {
+          border: 1px solid #e2cd46; }
+        main .data .others .calendar table td:nth-of-type(6) span:first-of-type {
+          color: red; }
+        main .data .others .calendar table td:nth-of-type(7) span:first-of-type {
+          color: red; }
+    main .data .others .best-seller {
+      width: 60%; }
 
 /*# sourceMappingURL=style.css.map */

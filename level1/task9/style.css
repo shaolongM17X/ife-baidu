@@ -1,0 +1,429 @@
+* {
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", STHeiti, MingLiu, sans-serif; }
+
+.separator-flex {
+  flex: 1; }
+
+body {
+  margin: 0;
+  min-width: 1322px; }
+
+header {
+  z-index: 9999;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  background-color: #2189bf;
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+  padding-right: 100px; }
+  header .logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("assets/logo.png");
+    background-size: 100% 100%; }
+  header .search-bar {
+    border-radius: 50px;
+    height: 30px;
+    background-color: white;
+    padding: 0 20px;
+    display: flex;
+    margin-right: 20px; }
+    header .search-bar i {
+      line-height: 30px;
+      color: #ababab; }
+    header .search-bar input {
+      border-radius: 50px;
+      border: 0;
+      transition: width .5s;
+      width: 200px; }
+    header .search-bar input:focus {
+      width: 250px;
+      outline: none; }
+  header i,
+  header span {
+    color: white;
+    font-size: 14px; }
+
+.side-bar {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding-top: 84px;
+  background-color: #2b2e3d;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .side-bar .user {
+    padding-left: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center; }
+    .side-bar .user .icon {
+      display: flex;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #b9babe;
+      margin-right: 20px; }
+      .side-bar .user .icon .user-photo {
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+        background-image: url("assets/doge.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        margin: 0 auto; }
+    .side-bar .user span {
+      color: white; }
+  .side-bar .user-info {
+    display: flex;
+    padding: 0 70px; }
+    .side-bar .user-info div {
+      width: 50%; }
+    .side-bar .user-info .watching {
+      border-right: 1px solid #313545; }
+    .side-bar .user-info span {
+      color: #6e8096;
+      font-size: 14px; }
+    .side-bar .user-info .fans {
+      margin-left: 30px; }
+  .side-bar .data-lists {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 20px; }
+    .side-bar .data-lists .data-list {
+      padding-left: 40px; }
+      .side-bar .data-lists .data-list .list-title {
+        height: 45px;
+        display: flex;
+        align-items: center; }
+        .side-bar .data-lists .data-list .list-title i {
+          margin-right: 10px;
+          color: #6e8096; }
+        .side-bar .data-lists .data-list .list-title span {
+          display: inline-block;
+          color: #6e8096; }
+      .side-bar .data-lists .data-list .file-lists {
+        display: none;
+        padding-bottom: 10px;
+        list-style-type: none; }
+        .side-bar .data-lists .data-list .file-lists .file-list .list-title {
+          height: 30px; }
+          .side-bar .data-lists .data-list .file-lists .file-list .list-title i {
+            color: #6e8096; }
+          .side-bar .data-lists .data-list .file-lists .file-list .list-title span {
+            color: #6e8096; }
+        .side-bar .data-lists .data-list .file-lists .file-list .files {
+          list-style-type: none; }
+          .side-bar .data-lists .data-list .file-lists .file-list .files .file {
+            color: #6e8096;
+            padding-left: 20px;
+            font-size: 16px; }
+            .side-bar .data-lists .data-list .file-lists .file-list .files .file .is-selected i {
+              color: white; }
+            .side-bar .data-lists .data-list .file-lists .file-list .files .file .is-selected span {
+              color: white; }
+            .side-bar .data-lists .data-list .file-lists .file-list .files .file i {
+              font-size: 16px; }
+    .side-bar .data-lists .data-is-selected {
+      background-color: #383d4d; }
+      .side-bar .data-lists .data-is-selected .list-title i {
+        color: white; }
+      .side-bar .data-lists .data-is-selected .list-title span {
+        color: white; }
+      .side-bar .data-lists .data-is-selected .file-lists {
+        display: block; }
+        .side-bar .data-lists .data-is-selected .file-lists .file-list .file-is-selected i {
+          color: white; }
+        .side-bar .data-lists .data-is-selected .file-lists .file-list .file-is-selected span {
+          color: white; }
+
+.file-path {
+  background-color: white;
+  height: 30px;
+  width: 100%;
+  padding-left: 40px;
+  position: fixed;
+  top: 64px;
+  left: 300px;
+  display: flex;
+  align-items: center; }
+  .file-path span {
+    font-size: 13px;
+    color: #b9babd; }
+  .file-path span:last-child {
+    color: #2189bf; }
+  .file-path span:nth-of-type(2n) {
+    display: inline-block;
+    margin: 0 10px; }
+
+main {
+  background-color: #eeeeed;
+  padding-left: 360px;
+  padding-right: 60px;
+  padding-top: 114px;
+  width: 100%; }
+  main .card {
+    border-radius: 2px;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 20px; }
+  main .search {
+    width: 100%; }
+    main .search form {
+      padding: 20px 40px;
+      display: flex; }
+      main .search form .small-input {
+        width: 70px; }
+      main .search form select {
+        padding: 2px 8px;
+        margin-bottom: 6px; }
+      main .search form label {
+        color: #6e8096;
+        font-size: 12px;
+        margin-right: 10px;
+        display: inline-block; }
+      main .search form .search-type,
+      main .search form .buyer-seller,
+      main .search form .details {
+        margin-right: 20px; }
+      main .search form .details input {
+        margin-bottom: 6px;
+        margin-right: 2px;
+        padding: 2px 8px; }
+      main .search form .buyer-seller {
+        display: flex;
+        align-items: center; }
+        main .search form .buyer-seller select {
+          width: 150px; }
+        main .search form .buyer-seller .swap-icon {
+          background-image: url("assets/swap.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          width: 29px;
+          height: 48px; }
+  main form input[type="button"] {
+    width: 60px;
+    height: 30px;
+    color: white;
+    background-color: #2189bf;
+    border-radius: 2px;
+    border: 0; }
+  main .time-price {
+    display: flex; }
+    main .time-price .small-btn {
+      padding: 0 5px;
+      display: flex;
+      align-items: center; }
+      main .time-price .small-btn i {
+        color: #2189bf;
+        font-size: 30px; }
+    main .time-price .card {
+      padding: 3px 0;
+      margin-right: 5px;
+      text-align: center; }
+      main .time-price .card .time {
+        font-size: 14px; }
+      main .time-price .card .money {
+        color: #6e8096; }
+      main .time-price .card .price {
+        font-size: 25px;
+        color: #ec6500; }
+    main .time-price .card:last-child {
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      main .time-price .card:last-child i {
+        color: #2189bf;
+        font-size: 36px; }
+      main .time-price .card:last-child span {
+        font-size: 16px; }
+    main .time-price .adjustable {
+      flex: 1; }
+    main .time-price .is-selected {
+      border-top: 4px solid #2189bf; }
+  main .data .statistics .title {
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 3px; }
+  main .data .statistics .deals {
+    display: flex; }
+    main .data .statistics .deals .card {
+      display: flex;
+      margin-right: 30px;
+      flex: 1;
+      padding: 15px; }
+    main .data .statistics .deals .card:last-child {
+      margin-right: 0; }
+    main .data .statistics .deals .green {
+      border-left: 4px solid #44b29e; }
+      main .data .statistics .deals .green .box {
+        background-color: #44b29e; }
+    main .data .statistics .deals .blue {
+      border-left: 4px solid #388ac1; }
+      main .data .statistics .deals .blue .box {
+        background-color: #388ac1; }
+    main .data .statistics .deals .red {
+      border-left: 4px solid #cf4a36; }
+      main .data .statistics .deals .red .box {
+        background-color: #cf4a36; }
+    main .data .statistics .deals .yellow {
+      border-left: 4px solid #e2cd46; }
+      main .data .statistics .deals .yellow .box {
+        background-color: #e2cd46; }
+    main .data .statistics .deals .box {
+      width: 70px;
+      height: 50px; }
+    main .data .statistics .deals .num {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      main .data .statistics .deals .num span {
+        font-size: 13px; }
+      main .data .statistics .deals .num span:last-child {
+        color: #6e8096; }
+  main .data .details .card {
+    border: 0.5px solid #f4f5f7;
+    border-radius: 5px;
+    margin-right: 10px; }
+    main .data .details .card .title {
+      height: 45px;
+      width: 100%;
+      background-color: #f4f5f7;
+      padding-left: 30px;
+      display: flex;
+      align-items: center; }
+      main .data .details .card .title span {
+        font-size: 15px;
+        color: #6e8096; }
+    main .data .details .card .main-content {
+      border: 0.5px solid #f4f5f7;
+      padding-top: 10px;
+      padding-bottom: 30px;
+      padding-left: 25px;
+      padding-right: 25px; }
+  main .data .details .projects {
+    display: flex; }
+    main .data .details .projects .project {
+      width: 65%; }
+      main .data .details .projects .project .project-names {
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        margin-bottom: 0; }
+        main .data .details .projects .project .project-names .project-name {
+          padding: 6px 25px;
+          background-color: #ededf0;
+          margin-right: 5px;
+          font-size: 13px;
+          border-bottom: 1px solid #6e8096; }
+        main .data .details .projects .project .project-names .is-selected {
+          background-color: white;
+          border: 1px solid #6e8096;
+          border-bottom: 1px solid white; }
+      main .data .details .projects .project .project-content {
+        border: 1px solid #6e8096;
+        height: 300px;
+        margin-top: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        main .data .details .projects .project .project-content table {
+          border-collapse: collapse; }
+          main .data .details .projects .project .project-content table .is-selected {
+            background-color: #f4f5f7; }
+          main .data .details .projects .project .project-content table td {
+            border: 1px solid #dedfe0;
+            padding: 10px 10px;
+            font-size: 14px; }
+    main .data .details .projects .project-detail {
+      align-self: stretch;
+      width: 35%; }
+      main .data .details .projects .project-detail .card {
+        margin-right: 0; }
+      main .data .details .projects .project-detail .main-content form label {
+        color: #c7c6c6;
+        font-size: 14px; }
+      main .data .details .projects .project-detail .main-content form input {
+        border: 0; }
+      main .data .details .projects .project-detail .main-content form textarea {
+        border: 0;
+        border-top: 1px;
+        resize: none;
+        width: 100%;
+        border-bottom: 1px solid #f4f5f7;
+        height: 165px; }
+      main .data .details .projects .project-detail .main-content form textarea:focus,
+      main .data .details .projects .project-detail .main-content form input:focus {
+        outline: 0; }
+      main .data .details .projects .project-detail .main-content form div {
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px; }
+        main .data .details .projects .project-detail .main-content form div div {
+          padding: 0; }
+      main .data .details .projects .project-detail .main-content form .price-and-representative {
+        border-top: 1px solid #f4f5f7;
+        border-bottom: 1px solid #f4f5f7;
+        display: flex; }
+        main .data .details .projects .project-detail .main-content form .price-and-representative .price {
+          border-right: 1px solid #f4f5f7; }
+          main .data .details .projects .project-detail .main-content form .price-and-representative .price input {
+            width: 100%; }
+        main .data .details .projects .project-detail .main-content form .price-and-representative .representative {
+          padding-left: 20px; }
+          main .data .details .projects .project-detail .main-content form .price-and-representative .representative input {
+            width: 100%; }
+      main .data .details .projects .project-detail .main-content form .submit-part {
+        display: flex;
+        align-items: center; }
+  main .data .others {
+    display: flex; }
+    main .data .others .calendar {
+      width: 40%; }
+      main .data .others .calendar .select-part {
+        margin-bottom: 10px;
+        display: flex; }
+        main .data .others .calendar .select-part select {
+          margin-right: 5px; }
+        main .data .others .calendar .select-part select:last-child {
+          margin-right: 0; }
+        main .data .others .calendar .select-part #month {
+          flex: 1; }
+        main .data .others .calendar .select-part input[type="button"] {
+          background-color: white;
+          border: 1px solid darkgray; }
+      main .data .others .calendar table {
+        border-collapse: collapse;
+        width: 100%; }
+        main .data .others .calendar table .days td {
+          border-top: 1px solid #6e8096;
+          border-bottom: 1px solid #6e8096;
+          padding: 10px 0; }
+        main .data .others .calendar table td {
+          font-size: 12px;
+          text-align: center;
+          padding: 5px 0; }
+        main .data .others .calendar table td span {
+          display: block; }
+        main .data .others .calendar table .special {
+          color: red; }
+        main .data .others .calendar table .focus {
+          border: 1px solid #e2cd46; }
+        main .data .others .calendar table td:nth-of-type(6) span:first-of-type {
+          color: red; }
+        main .data .others .calendar table td:nth-of-type(7) span:first-of-type {
+          color: red; }
+    main .data .others .best-seller {
+      width: 60%; }
+
+/*# sourceMappingURL=style.css.map */

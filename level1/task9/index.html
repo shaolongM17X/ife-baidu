@@ -114,6 +114,118 @@
             </li>
         </ul>
     </div>
+    <div class="file-path">
+        <span>Cilicili</span>
+        <span>/</span>
+        <span>个人报表</span>
+        <span>/</span>
+        <span>文件一</span>
+        <span>/</span>
+        <span>文档一</span>
+    </div>
+    <main>
+        <section class="search card">
+            <form>
+                <div class="search-type">
+                    <label for="search-type">查询项</label>
+                    <select name="search" id="search-type">
+                        <option value="第一项">第一项</option>
+                        <option value="第二项">第二项</option>
+                        <option value="第三项">第三项</option>
+                    </select>
+                </div>
+                <div class="buyer-seller">
+                    <div class="content-wrapper">
+                        <label for="search-type">买方</label>
+                        <select name="search" id="search-type">
+                            <option value="Bilibili">Bilibili</option>
+                            <option value="Acfun">Acfun</option>
+                            <option value="Cilicili">Cilicili</option>
+                        </select>
+                        <br>
+                        <label for="search-type">卖方</label>
+                        <select name="search" id="search-type">
+                            <option value="Acfun">Acfun</option>
+                            <option value="Bilibili">Bilibili</option>
+                            <option value="Cilicili">Cilicili</option>
+                        </select>
+                    </div>
+                    <i class="swap-icon"></i>
+                </div>
+                <div class="details">
+                    <div>
+                        <label for="date">日期</label>
+                        <input type="date" id="date" name="date">
+                        <label for="day">总耗时</label>
+                        <input type="text" class="small-input" id="day" list="days">
+                        <datalist id="days">
+                            <option value="8天">
+                                <option value="18天">
+                        </datalist>
+                    </div>
+                    <div>
+                        <label for="num-pl">人数</label>
+                        <input type="text" id="num-pl" name="num-pl" class="small-input" list="pl">
+                        <datalist id="pl">
+                            <option value="10人">
+                                <option value="998人">
+                        </datalist>
+                        <label for="deal">成交项</label>
+                        <input type="text" id="deal" name="deals" list="deals">
+                        <datalist id="deals">
+                            <option value="10项">
+                                <option value="9项">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="search-button">
+                    <input type="button" value="搜索" name="search">
+                </div>
+            </form>
+        </section>
+        <section class="time-price">
+            <div class="small-btn card">
+                <i class="material-icons">chevron_left</i>
+            </div>
+            <div class="adjustable card is-selected">
+                <span class="time">10:00 am</span>
+                <br>
+                <span class="money">￥</span><span class="price">1200</span>
+            </div>
+            <div class="adjustable card">
+                <span class="time">10:00 am</span>
+                <br>
+                <span class="money">￥</span><span class="price">1200</span>
+            </div>
+            <div class="adjustable card">
+                <span class="time">10:00 am</span>
+                <br>
+                <span class="money">￥</span><span class="price">1200</span>
+            </div>
+            <div class="adjustable card">
+                <span class="time">10:00 am</span>
+                <br>
+                <span class="money">￥</span><span class="price">1200</span>
+            </div>
+            <div class="adjustable card">
+                <span class="time">10:00 am</span>
+                <br>
+                <span class="money">￥</span><span class="price">1200</span>
+            </div>
+            <div class="adjustable card">
+                <span class="time">10:00 am</span>
+                <br>
+                <span class="money">￥</span><span class="price">1200</span>
+            </div>
+            <div class="small-btn card">
+                <i class="material-icons">chevron_right</i>
+            </div>
+            <div class="adjustable card">
+                <i class="material-icons">today</i>
+                <span>历史查询</span>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>

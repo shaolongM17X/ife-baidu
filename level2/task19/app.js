@@ -35,11 +35,11 @@ var controller = {
     },
     // 从左边加入数字
     leftIn: function(num) {
-        helper.insertNumber(num);
+        helper.insertNumber(num, 'left');
     },
     // 从右边加入数字
     rightIn: function(num) {
-        helper.insertNumber('right');
+        helper.insertNumber(num, 'right');
     },
     // 左边出去
     leftOut: function() {

@@ -12,7 +12,7 @@ var helper = {
                 if (direction == 'left') {
                     modal.numberList.unshift(num);
                 } else {
-                    modal.numberList.push(num);  
+                    modal.numberList.push(num);
                 }
                 view.render();
             } else {
@@ -52,6 +52,13 @@ var controller = {
     removeAt: function(pos) {
         modal.numberList.splice(pos, 1);
     },
+    generate_random_numbers: function() {
+        modal.numberList = [];
+        for(var i = 0; i < 50; i++) {
+            var num = Math.floor((Math.random() * 90) + 10);
+            modal.numberList.push(num);
+        }
+    }
 };
 
 var view = {
@@ -80,6 +87,11 @@ var view = {
             controller.rightOut();
             view.render();
         });
+        var $random_generating_button = document.getElementById("random-50");
+        $random_generating_button.addEventListener('click', function() {
+            controller.generate_random_numbers();
+            view.render();
+        });
         view.render();
     },
     render: function() {
@@ -87,7 +99,7 @@ var view = {
         var htmlToAppend = '';
         for (var i = 0; i < list.length; i++) {
             // because the height in original input number is too short, I multiply it by a constant hold in helper object
-            htmlToAppend += '<li id="list-item' + i + '" style="height: '+ list[i]*helper.multiplier +'px;"></li>'
+            htmlToAppend += '<li id="list-item' + i + '" style="height: ' + list[i] * helper.multiplier + 'px;"></li>'
         }
         this.$list.innerHTML = htmlToAppend;
         for (var i = 0; i < list.length; i++) {
@@ -104,5 +116,4 @@ var view = {
 };
 
 
-    view.init();
-
+view.init();

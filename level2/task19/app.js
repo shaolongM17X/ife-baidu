@@ -1,0 +1,91 @@
+var $list = document.getElementById("list-container");
+var inputIsValid = function(input) {
+    return /^\d+$/.test(input);
+}
+var modal = {
+    numberList: ['111', '222', '333'],
+};
+
+var controller = {
+    getNumberList: function() {
+        return modal.numberList;
+    },
+    // 从左边加入数字
+    leftIn: function(num) {
+        if (inputIsValid(num)) {
+            modal.numberList.unshift(num);
+            view.render();
+        } else {
+            alert("Please give me a number laaa");
+        }
+    },
+    // 从右边加入数字
+    rightIn: function(num) {
+        if (inputIsValid(num)) {
+            modal.numberList.push(num);
+            view.render;
+        } else {
+            alert("Please give me a number laaa");
+        }
+    },
+    // 左边出去
+    leftOut: function() {
+        modal.numberList.shift();
+    },
+    // 右边出去
+    rightOut: function() {
+        modal.numberList.pop();
+    },
+    removeAt: function(pos) {
+        modal.numberList.splice(pos, 1);
+    },
+};
+
+var view = {
+    init: function() {
+        var $left_in_button = document.getElementById("from-left-in");
+        var $right_in_button = document.getElementById("from-right-in");
+        var $left_out_button = document.getElementById("from-left-out");
+        var $right_out_button = document.getElementById("from-right-out");
+        var $input_text = document.getElementById("text");
+        $left_in_button.addEventListener('click', function() {
+            controller.leftIn($input_text.value);
+            $input_text.value = "";
+            view.render();
+        });
+        $right_in_button.addEventListener('click', function() {
+            controller.rightIn($input_text.value);
+            $input_text.value = "";
+            view.render();
+        });
+        $left_out_button.addEventListener('click', function() {
+            controller.leftOut();
+            view.render();
+        });
+        $right_out_button.addEventListener('click', function() {
+            controller.rightOut();
+            view.render();
+        });
+        view.render();
+    },
+    render: function() {
+        var list = controller.getNumberList();
+        var htmlToAppend = '';
+        for (var i = 0; i < list.length; i++) {
+            htmlToAppend += '<li id="list-item' + i + '">' + list[i] + '</li>'
+        }
+        $list.innerHTML = htmlToAppend;
+        for (var i = 0; i < list.length; i++) {
+            // we have to pass the i inside a function that returns a function, so that the innermost i will be able to be accessed afterwards.
+            // otherwise, the i will increase as the for loop goes, and when we click the element, it will go back to our function and use the newest i, which is the last i, and therefore will always remove the last element.
+            document.getElementById("list-item" + i).addEventListener('click', (function(i) {
+                return function() {
+                    controller.removeAt(i);
+                    view.render();
+                }
+            })(i));
+        }
+    }
+};
+
+view.init();

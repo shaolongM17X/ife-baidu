@@ -3,6 +3,20 @@
 <head>
 	<meta charset="utf-8">
 	<title>Merge Sort</title>
+	<style>
+		#list-container {
+			display: flex;
+			list-style-type: none;
+			padding: 0;
+			align-items: flex-end;
+		}
+		#list-container li {
+			margin-right: 10px;
+			width: 16px;
+			background-color: red;
+			transition: height 0.5s;
+		}
+	</style>
 </head>
 <body>
 	<form>
@@ -13,6 +27,6 @@
         <input type="button" id="from-right-out" value="右侧出">
     </form>
     <ul id="list-container"></ul>
-	<script type="text/javascript" src="app.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>

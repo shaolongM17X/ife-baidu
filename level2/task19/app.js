@@ -1,9 +1,32 @@
-var $list = document.getElementById("list-container");
-var inputIsValid = function(input) {
-    return /^\d+$/.test(input);
+var helper = {
+    inputIsValid: function(input) {
+        if (/^\d+$/.test(input)) {
+            var num = parseInt(input);
+            return num >= 10 && num <= 100;
+        }
+        return false;
+    },
+    insertNumber: function(num, direction) {
+        if (this.inputIsValid(num)) {
+            if (modal.numberList.length <= 60) {
+                if (direction == 'left') {
+                    modal.numberList.unshift(num);
+                } else {
+                    modal.numberList.push(num);  
+                }
+                view.render();
+            } else {
+                alert("That's too much man");
+            }
+        } else {
+            alert("Please give me a number in [10, 100] laaa");
+        }
+    },
+    multiplier: 3,
 }
+
 var modal = {
-    numberList: ['111', '222', '333'],
+    numberList: [],
 };
 
 var controller = {
@@ -12,21 +35,11 @@ var controller = {
     },
     // 从左边加入数字
     leftIn: function(num) {
-        if (inputIsValid(num)) {
-            modal.numberList.unshift(num);
-            view.render();
-        } else {
-            alert("Please give me a number laaa");
-        }
+        helper.insertNumber(num);
     },
     // 从右边加入数字
     rightIn: function(num) {
-        if (inputIsValid(num)) {
-            modal.numberList.push(num);
-            view.render;
-        } else {
-            alert("Please give me a number laaa");
-        }
+        helper.insertNumber('right');
     },
     // 左边出去
     leftOut: function() {
@@ -42,6 +55,7 @@ var controller = {
 };
 
 var view = {
+    $list: document.getElementById("list-container"),
     init: function() {
         var $left_in_button = document.getElementById("from-left-in");
         var $right_in_button = document.getElementById("from-right-in");
@@ -72,9 +86,10 @@ var view = {
         var list = controller.getNumberList();
         var htmlToAppend = '';
         for (var i = 0; i < list.length; i++) {
-            htmlToAppend += '<li id="list-item' + i + '">' + list[i] + '</li>'
+            // because the height in original input number is too short, I multiply it by a constant hold in helper object
+            htmlToAppend += '<li id="list-item' + i + '" style="height: '+ list[i]*helper.multiplier +'px;"></li>'
         }
-        $list.innerHTML = htmlToAppend;
+        this.$list.innerHTML = htmlToAppend;
         for (var i = 0; i < list.length; i++) {
             // we have to pass the i inside a function that returns a function, so that the innermost i will be able to be accessed afterwards.
             // otherwise, the i will increase as the for loop goes, and when we click the element, it will go back to our function and use the newest i, which is the last i, and therefore will always remove the last element.
@@ -88,4 +103,6 @@ var view = {
     }
 };
 
-view.init();
+
+    view.init();
+

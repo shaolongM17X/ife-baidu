@@ -23,6 +23,41 @@ var helper = {
         }
     },
     multiplier: 3,
+    mergeSort: function() {
+        var arr = modal.numberList;
+        var temp = new Array(arr.length);
+        helper.merge_rec(arr, temp, 0, arr.length-1);
+    },
+    merge_rec: function(arr, temp, start, end) {
+        if (start >= end) {
+            return;
+        }
+        var mid = Math.floor(start+(end - start)/2);
+        helper.merge_rec(arr, temp, start, mid);
+        helper.merge_rec(arr, temp, mid+1, end);
+        helper.merge(arr, temp, start, mid, end);
+    },
+    merge: function(arr, temp, start, mid, end) {
+        var i = start;
+        var j = mid + 1;
+        var k = start;
+        while(i <= mid && j <= end) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++]; 
+            }
+        }
+        while(i <= mid) {
+            temp[k++] = arr[i++];
+        }
+        while(j <= end) {
+            temp[k++] = arr[j++];
+        }
+        for (var i = start; i <= end; i++) {
+            arr[i] = temp[i];
+        }
+    }
 }
 
 var modal = {
@@ -58,7 +93,11 @@ var controller = {
             var num = Math.floor((Math.random() * 90) + 10);
             modal.numberList.push(num);
         }
-    }
+    },
+    sort: function() {
+        helper.mergeSort();
+        view.render();
+    },
 };
 
 var view = {
@@ -91,6 +130,10 @@ var view = {
         $random_generating_button.addEventListener('click', function() {
             controller.generate_random_numbers();
             view.render();
+        });
+        var $sort_button = document.getElementById("sort");
+        $sort_button.addEventListener('click', function() {
+            controller.sort();
         });
         view.render();
     },

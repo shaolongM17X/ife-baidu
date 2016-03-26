@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Task 20</title>
+    <style>
+        #list-container {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #list-container li {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            margin-right: 10px;
+            display: inline-block;
+            background-color: red;
+        }
+
+        textarea {
+            width: 200px;
+            height: 100px;
+            resize: none;
+        }
+
+        .match {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <form>
+        <textarea placeholder="你随意 :)" id="text"></textarea>
+        <input type="button" id="from-left-in" value="左侧入">
+        <input type="button" id="from-right-in" value="右侧入">
+        <input type="button" id="from-left-out" value="左侧出">
+        <input type="button" id="from-right-out" value="右侧出">
+        <input type="text" placeholder="输入你要查询的词" id="search-input">
+        <input type="button" id="search" value="查询">
+    </form>
+    <ul id="list-container"></ul>
+    <script>
+    
+    function getInputValue(text) {
+        return text.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(function(d){return d != '';});
+    }
+
+    var modal = {
+        list: ['111', '222', '333'],
+    };
+
+    var controller = {
+        getList: function() {
+            return modal.list;
+        },
+        // 从左边加入数字
+        leftIn: function(text) {
+            var input = getInputValue(text);
+            for (var i = 0; i < input.length; i++) {
+                modal.list.unshift(input[i]);
+            }
+            view.render;
+        },
+        // 从右边加入数字
+        rightIn: function(text) {
+            var input = getInputValue(text);
+            for (var i = 0; i < input.length; i++) {
+                modal.list.push(input[i]);
+            }
+            view.render;
+        },
+        // 左边出去
+        leftOut: function() {
+            modal.list.shift();
+        },
+        // 右边出去
+        rightOut: function() {
+            modal.list.pop();
+        },
+        removeAt: function(pos) {
+            modal.list.splice(pos, 1);
+        },
+        matchSearchValue: function(match) {
+            return modal.list.map(function(d) {
+                d = d.replace(new RegExp(match, 'g'), "<span class='match'>" + match + "</span>");
+                return '<li>' + d + '</li>';
+            }).join('');
+        },
+    };
+
+    var view = {
+        init: function() {
+            var $left_in_button = document.getElementById("from-left-in");
+            var $right_in_button = document.getElementById("from-right-in");
+            var $left_out_button = document.getElementById("from-left-out");
+            var $right_out_button = document.getElementById("from-right-out");
+            var $input_text = document.getElementById("text");
+            $left_in_button.addEventListener('click', function() {
+                controller.leftIn($input_text.value);
+                $input_text.value = "";
+                view.render();
+            });
+            $right_in_button.addEventListener('click', function() {
+                controller.rightIn($input_text.value);
+                $input_text.value = "";
+                view.render();
+            });
+            $left_out_button.addEventListener('click', function() {
+                controller.leftOut();
+                view.render();
+            });
+            $right_out_button.addEventListener('click', function() {
+                controller.rightOut();
+                view.render();
+            });
+            var $search_button = document.getElementById("search");
+            $search_button.addEventListener('click', function() {
+                var match = document.getElementById("search-input").value;
+                if (match != null) {
+                    var $list = document.getElementById("list-container");
+                    $list.innerHTML = controller.matchSearchValue(match);
+                }
+            });
+            view.render();
+        },
+        render: function() {
+            var list = controller.getList();
+            var htmlToAppend = '';
+            for (var i = 0; i < list.length; i++) {
+                htmlToAppend += '<li id="list-item' + i + '">' + list[i] + '</li>'
+            }
+            var $list = document.getElementById("list-container");
+            $list.innerHTML = htmlToAppend;
+            for (var i = 0; i < list.length; i++) {
+                // we have to pass the i inside a function that returns a function, so that the innermost i will be able to be accessed afterwards.
+                // otherwise, the i will increase as the for loop goes, and when we click the element, it will go back to our function and use the newest i, which is the last i, and therefore will always remove the last element.
+                document.getElementById("list-item" + i).addEventListener('click', (function(i) {
+                    return function() {
+                        controller.removeAt(i);
+                        view.render();
+                    }
+                })(i));
+            }
+        }
+    };
+
+    view.init();
+    </script>
+</body>
+
+</html>

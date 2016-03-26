@@ -23,7 +23,7 @@ var helper = {
         }
     },
     multiplier: 3,
-    rate: 30,
+    rate: 50,
 
     mergeSort: function() {
         var arr = modal.numberList;
@@ -41,16 +41,25 @@ var helper = {
         helper.merge(arr, temp, start, mid, end, aniQue);
     },
     merge: function(arr, temp, start, mid, end, aniQue) {
-        function compareTwoNumbers(num1, num2) {
+        function renderSort(pos, value) {
             aniQue.delay(function() {
-                document.getElementById("list-item"+num1).className = "current-position";
-                document.getElementById("list-item"+num2).className = "current-position";
+                document.getElementById("list-item"+pos).className = "blue";
+            }, 0);
+            if (value != null) { // we need to modify the height
+                aniQue.delay(function() {
+                    document.getElementById("list-item" + pos).style.height = value * helper.multiplier + "px";
+                }, 0);
+            }
+            aniQue.delay(function() {
+                document.getElementById("list-item"+ pos).className = "red";
             }, helper.rate);
         }
         var i = start;
         var j = mid + 1;
         var k = start;
         while (i <= mid && j <= end) {
+            // renderSort(i);
+            // renderSort(j);
             if (arr[i] <= arr[j]) {
                 temp[k++] = arr[i++];
             } else {
@@ -66,12 +75,7 @@ var helper = {
         for (var i = start; i <= end; i++) {
             arr[i] = temp[i];
             var value = arr[i];
-            (function(i, value) {
-                aniQue.delay(function() {
-                    console.log(i, value);
-                    document.getElementById("list-item" + i).style.height = arr[i] * helper.multiplier + "px";
-                }, helper.rate);
-            })(i, value);
+            renderSort(i, value);
         }
     },
     scheduler: function delay(fn, t) {

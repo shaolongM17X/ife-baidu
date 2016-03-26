@@ -23,41 +23,94 @@ var helper = {
         }
     },
     multiplier: 3,
+    rate: 30,
+
     mergeSort: function() {
         var arr = modal.numberList;
         var temp = new Array(arr.length);
-        helper.merge_rec(arr, temp, 0, arr.length-1);
+        var aniQue = helper.scheduler(function() {}, 0); // <-------------- Have a look
+        helper.merge_rec(arr, temp, 0, arr.length - 1, aniQue);
     },
-    merge_rec: function(arr, temp, start, end) {
+    merge_rec: function(arr, temp, start, end, aniQue) {
         if (start >= end) {
             return;
         }
-        var mid = Math.floor(start+(end - start)/2);
-        helper.merge_rec(arr, temp, start, mid);
-        helper.merge_rec(arr, temp, mid+1, end);
-        helper.merge(arr, temp, start, mid, end);
+        var mid = Math.floor(start + (end - start) / 2);
+        helper.merge_rec(arr, temp, start, mid, aniQue);
+        helper.merge_rec(arr, temp, mid + 1, end, aniQue);
+        helper.merge(arr, temp, start, mid, end, aniQue);
     },
-    merge: function(arr, temp, start, mid, end) {
+    merge: function(arr, temp, start, mid, end, aniQue) {
+        function compareTwoNumbers(num1, num2) {
+            aniQue.delay(function() {
+                document.getElementById("list-item"+num1).className = "current-position";
+                document.getElementById("list-item"+num2).className = "current-position";
+            }, helper.rate);
+        }
         var i = start;
         var j = mid + 1;
         var k = start;
-        while(i <= mid && j <= end) {
+        while (i <= mid && j <= end) {
             if (arr[i] <= arr[j]) {
                 temp[k++] = arr[i++];
             } else {
-                temp[k++] = arr[j++]; 
+                temp[k++] = arr[j++];
             }
         }
-        while(i <= mid) {
+        while (i <= mid) {
             temp[k++] = arr[i++];
         }
-        while(j <= end) {
+        while (j <= end) {
             temp[k++] = arr[j++];
         }
         for (var i = start; i <= end; i++) {
             arr[i] = temp[i];
+            var value = arr[i];
+            (function(i, value) {
+                aniQue.delay(function() {
+                    console.log(i, value);
+                    document.getElementById("list-item" + i).style.height = arr[i] * helper.multiplier + "px";
+                }, helper.rate);
+            })(i, value);
         }
-    }
+    },
+    scheduler: function delay(fn, t) {
+        // reference: http://stackoverflow.com/questions/6921275/is-it-possible-to-chain-settimeout-functions-in-javascript
+        // author: jfriend00
+
+        // private instance variables
+        var queue = [],
+            self, timer;
+
+        function schedule(fn, t) {
+            timer = setTimeout(function() {
+                timer = null;
+                fn();
+                if (queue.length) {
+                    var item = queue.shift();
+                    schedule(item.fn, item.t);
+                }
+            }, t);
+        }
+        self = {
+            delay: function(fn, t) {
+                // if already queuing things or running a timer, 
+                //   then just add to the queue
+                if (queue.length || timer) {
+                    queue.push({ fn: fn, t: t });
+                } else {
+                    // no queue or timer yet, so schedule the timer
+                    schedule(fn, t);
+                }
+                return self;
+            },
+            cancel: function() {
+                clearTimeout(timer);
+                queue = [];
+            }
+        };
+        return self.delay(fn, t);
+    },
 }
 
 var modal = {
@@ -89,14 +142,13 @@ var controller = {
     },
     generate_random_numbers: function() {
         modal.numberList = [];
-        for(var i = 0; i < 50; i++) {
+        for (var i = 0; i < 50; i++) {
             var num = Math.floor((Math.random() * 90) + 10);
             modal.numberList.push(num);
         }
     },
     sort: function() {
         helper.mergeSort();
-        view.render();
     },
 };
 

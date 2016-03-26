@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Task 21</title>
+    <style>
+    #list-container {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    #list-container li {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        margin-right: 10px;
+        display: inline-block;
+        background-color: red;
+    }
+    
+    textarea {
+        width: 200px;
+        height: 100px;
+        resize: none;
+    }
+    
+    [class$='container'] {
+        margin: 10px 0;
+    }
+    
+    ul {
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    ul li {
+        display: inline-block;
+        padding: 10px 10px;
+        background-color: blue;
+        margin: 0 10px;
+        color: white;
+        transition: padding 0.2s linear;
+    }
+    
+    ul li:hover {
+        padding: 10px 30px;
+        background-color: red;
+    }
+    ul li:hover::before {
+        content: "点击删除";
+    }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="tag">Tag:</label>
+        <input type="text" id="tag" autofocus>
+        <br>
+        <ul id="tags-container"></ul>
+        <label for="interests">兴趣爱好</label>
+        <br>
+        <textarea placeholder="你随意 :)" id="text"></textarea>
+        <br>
+        <input type="button" id="interests-input-btn" value="确定输入兴趣爱好">
+        <ul id="interests-container"></ul>
+    </form>
+    <script>
+    function notArepetition(interest, list) {
+        if (list.indexOf(interest) == -1) {
+            if (list.length == 10) {
+                list.shift();
+            }
+            return true;
+        }
+
+        return false;
+    }
+    var modal = {
+        tags: [],
+        interests: [],
+    };
+
+    var controller = {
+        getInterestsList: function() {
+            return modal.interests;
+        },
+        removeAt: function(pos, str) {
+            if (str == 'interests') {
+                modal.interests.splice(pos, 1);
+            } else {
+                modal.tags.splice(pos, 1);
+            }
+        },
+        generateList: function(list) {
+            return list.map(function(d) {
+                return '<li>' + d + '</li>';
+            }).join('');
+        },
+        addInterests: function() {
+            function getInputValue(text) {
+                return text.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(function(d) {
+                    return d != '';
+                });
+            }
+            var interests = getInputValue(document.getElementById("text").value);
+            interests.forEach(function(interest) {
+                if (notArepetition(interest, modal.interests)) {
+                    modal.interests.push(interest);
+                }
+            });
+            document.getElementById("text").value = '';
+            view.render();
+        },
+        addIntoTags(tag) {
+            if (notArepetition(tag, modal.tags) && tag != '') {
+                modal.tags.push(tag);
+            }
+            view.render();
+        },
+    };
+
+    var view = {
+        init: function() {
+            document.getElementById("interests-input-btn").addEventListener('click', function() {
+                controller.addInterests();
+            });
+            $tag_input = document.getElementById("tag");
+            // prevent the default action of submitting the form after pressing enter button
+            $tag_input.onkeydown = function(e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                }
+            }
+            $tag_input.onkeyup = function(e) {
+                var str = this.value;
+                if (/[\s,\，]/.test(str) || e.keyCode == 13) {
+                    str = str.match(/[^\s,\，]*/)[0];
+                    controller.addIntoTags(str);
+                    $tag_input.value = '';
+                }
+            };
+        },
+        render: function() {
+            function attachEventListenerToList($list, list_name) {
+                for (var i = 0; i < $list.length; i++) {
+                    $list[i].addEventListener('click', (function(i) {
+                        return function() {
+                            controller.removeAt(i, list_name);
+                            view.render();
+                        }
+                    })(i));
+                }
+            }
+            document.getElementById("interests-container").innerHTML = controller.generateList(modal.interests);
+            document.getElementById("tags-container").innerHTML = controller.generateList(modal.tags);
+            var $interestsList = document.querySelectorAll("#interests-container li");
+            attachEventListenerToList($interestsList, 'interests');
+            var $tagList = document.querySelectorAll("#tags-container li");
+            attachEventListenerToList($tagList, 'tags');
+        }
+    };
+
+    view.init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Binary Search Tree::Task22</title>
+    <script src="binary_tree.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        background-color: #FAFAFA;
+    }
+    
+    main {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 100px;
+    }
+    
+    main .mdl-card {
+        width: 100%;
+    }
+    
+    main .mdl-card .main-content {
+        padding: 20px 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <main class="shadow">
+        <div class="mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Binary Search Tree</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                这是一个BST的demo，输入一个数字点击button即可把该数字加入BST。点击任意一个tree node即可将其remove。
+            </div>
+            <div class="main-content">
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="valueToAdd">
+                        <label class="mdl-textfield__label" for="valueToAdd">Number...</label>
+                        <span class="mdl-textfield__error">你输入的不是数字诶.</span>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="add-btn">
+                        加入BST！
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="inorder-btn">
+                        In-Order Traverse
+                    </button>
+                </form>
+                <div class="tree">
+                	
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

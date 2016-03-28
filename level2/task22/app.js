@@ -5,10 +5,11 @@ var modal = {
 var controller = {
 	addIntoTree: function(value) {
 		function inputIsValid(value) {
-			return /^\d+$/.test(value);
+			// return /^\d+$/.test(value); // this works for only positive integers
+			return /^-?\d*(\.\d*)?$/.test(value) && value != '';
 		}
 		if (inputIsValid(value)) {
-			modal.binaryTree.add(value);
+			modal.binaryTree.add(parseFloat(value));
 		}
 	},
 	getArrayRepresentation: function() {
@@ -17,18 +18,27 @@ var controller = {
 	getHeight: function() {
 		return modal.binaryTree.heightOfTree();
 	},
+	removeNode: function(value) {
+		modal.binaryTree.remove(value);
+	},
 };
 
 var view = {
 	init: function() {
 		modal.binaryTree = new BinarySearchTree();
-		$addButton = document.getElementById("add-btn");
-		$addButton.addEventListener('click', function() {
+		var $addButton = document.getElementById("add-btn");
+		$addButton.addEventListener('click', function(e) {
+			e.preventDefault();
 			$inputField = document.getElementById("valueToAdd");
 			var input_value = $inputField.value;
 			controller.addIntoTree(input_value);
 			$inputField.value = '';
 			view.render();
+		});
+		var $inOrderTraverse = document.getElementById("inorder-btn");
+		$inOrderTraverse.addEventListener('click', function(e) {
+			e.preventDefault();
+			console.log("inorder");
 		});
 	},
 
@@ -42,7 +52,6 @@ var view = {
 			}
 			return '<li style="width:'+ width + '%"><button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" id="value' + value+ '">' + value+'</button></li>';
 		});
-		console.log(htmlArr);
 		var height = controller.getHeight();
 		$tree = document.getElementById('tree');
 		$tree.innerHTML = '';
@@ -54,6 +63,15 @@ var view = {
 				htmlToAppend += htmlArr[j];
 			}
 			$container.innerHTML = htmlToAppend;
+		}
+		// set up event listener for all the value nodes
+		$value_nodes = document.querySelectorAll("button[id^='value']");
+		for (var i = 0; i < $value_nodes.length; i++) {
+			$value_nodes[i].addEventListener('click', function() {
+				var value = this.id.substr(5);
+				controller.removeNode(value);
+				view.render();
+			});
 		}
 	}
 };

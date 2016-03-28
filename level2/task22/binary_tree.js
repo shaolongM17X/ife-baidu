@@ -37,6 +37,7 @@ BinarySearchTree.prototype = {
 						current = current.right;
 					}
 				} else { // the values are the same. We drop the value
+					this.length--;
 					return false;
 				}
 			}
@@ -151,20 +152,17 @@ BinarySearchTree.prototype = {
 		inOrder_rec(this.root);
 	},
 	// return An array representation of the BST, 
-	// where empty nodes are represented by ""
+	// where empty nodes are represented by null/undefined
+	// I wrote a blog about this algorithm:
+	// http://shaolongm17x.github.io/blog-hexo/2016/03/27/Make-a-binary-tree-into-array/
 	toArray: function() {
 		function toArray_rec(current_height, max_height, n, node, arr) {
 			if (node != null) {
 				arr[n - 1] = node.value;
 			}
-			if (current_height < max_height) {
-				if (node == null) {
-					toArray_rec(current_height+1, max_height, 2*n, null, arr);
-					toArray_rec(current_height+1, max_height, 2*n + 1, null, arr);
-				} else {
-					toArray_rec(current_height+1, max_height, 2*n, node.left, arr);
-					toArray_rec(current_height+1, max_height, 2*n + 1, node.right, arr);
-				}
+			if (current_height < max_height && node != null) {
+				toArray_rec(current_height+1, max_height, 2*n, node.left, arr);
+				toArray_rec(current_height+1, max_height, 2*n + 1, node.right, arr);
 			}
 		}
 		var max_height = this.heightOfTree();
@@ -182,13 +180,3 @@ BinarySearchTree.prototype = {
 		return height_rec(this.root);
 	},
 };
-var sb = new BinarySearchTree();
-sb.add(8);
-sb.add(3);
-sb.add(1);
-sb.add(6);
-sb.add(4);
-sb.add(7);
-sb.add(10);
-sb.add(14);
-sb.add(13);

@@ -99,6 +99,12 @@ BinarySearchTree.prototype = {
         }
         // Case 2 current node has only one child
         if (current.left === null && current.right != null) {
+            // deal with the root case
+            if (current == this.root) {
+                this.root = current.right;
+                return true;
+            }
+            // other cases
             if (directionIsLeft) {
                 prev.left = current.right;
             } else {
@@ -107,6 +113,12 @@ BinarySearchTree.prototype = {
             return true;
         }
         if (current.left != null && current.right === null) {
+            // root case
+            if (current == this.root) {
+                this.root = current.left;
+                return true;
+            }
+            // other cases
             if (directionIsLeft) {
                 prev.left = current.left;
             } else {
@@ -146,10 +158,12 @@ BinarySearchTree.prototype = {
                 return;
             }
             inOrder_rec(node.left);
-            console.log(node.value);
+            arr.push(node.value);
             inOrder_rec(node.right);
         }
-        inOrder_rec(this.root);
+        var arr = [];
+        inOrder_rec(this.root, arr);
+        return arr;
     },
     // return An array representation of the BST, 
     // where empty nodes are represented by null/undefined

@@ -21,6 +21,9 @@ var controller = {
 	removeNode: function(value) {
 		modal.binaryTree.remove(value);
 	},
+	inOrderTrav: function() {
+		return modal.binaryTree.inOrder();
+	},
 };
 
 var view = {
@@ -38,7 +41,11 @@ var view = {
 		var $inOrderTraverse = document.getElementById("inorder-btn");
 		$inOrderTraverse.addEventListener('click', function(e) {
 			e.preventDefault();
-			console.log("inorder");
+			var inOrderArr = controller.inOrderTrav();
+			for (var i = 0; i < inOrderArr.length; i++) {
+				$currentNode = document.getElementById("value"+inOrderArr[i]);
+				// might need an animation queue
+			}
 		});
 	},
 

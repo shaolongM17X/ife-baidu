@@ -150,4 +150,45 @@ BinarySearchTree.prototype = {
 		}
 		inOrder_rec(this.root);
 	},
+	// return An array representation of the BST, 
+	// where empty nodes are represented by ""
+	toArray: function() {
+		function toArray_rec(current_height, max_height, n, node, arr) {
+			if (node != null) {
+				arr[n - 1] = node.value;
+			}
+			if (current_height < max_height) {
+				if (node == null) {
+					toArray_rec(current_height+1, max_height, 2*n, null, arr);
+					toArray_rec(current_height+1, max_height, 2*n + 1, null, arr);
+				} else {
+					toArray_rec(current_height+1, max_height, 2*n, node.left, arr);
+					toArray_rec(current_height+1, max_height, 2*n + 1, node.right, arr);
+				}
+			}
+		}
+		var max_height = this.heightOfTree();
+		var array = new Array(Math.pow(2, max_height)-1);
+		toArray_rec(1, max_height, 1, this.root, array);
+		return array;
+	},
+	heightOfTree: function() {
+		function height_rec(node) {
+			if (node === null) {return 0;}
+			var left_height = height_rec(node.left);
+			var right_height = height_rec(node.right);
+			return 1 + Math.max(left_height, right_height);
+		}
+		return height_rec(this.root);
+	},
 };
+var sb = new BinarySearchTree();
+sb.add(8);
+sb.add(3);
+sb.add(1);
+sb.add(6);
+sb.add(4);
+sb.add(7);
+sb.add(10);
+sb.add(14);
+sb.add(13);

@@ -38,13 +38,16 @@ var view = {
 			$inputField.value = '';
 			view.render();
 		});
+		function changeColor($node, color) {
+			$node.style.
+		}
 		var $inOrderTraverse = document.getElementById("inorder-btn");
 		$inOrderTraverse.addEventListener('click', function(e) {
 			e.preventDefault();
 			var inOrderArr = controller.inOrderTrav();
 			for (var i = 0; i < inOrderArr.length; i++) {
 				$currentNode = document.getElementById("value"+inOrderArr[i]);
-				// might need an animation queue
+				
 			}
 		});
 	},

@@ -6,8 +6,28 @@ var rootNode = new TreeNode({
 	domNode: $root,
 });
 var $rootUl = document.getElementById("rootUl");
+console.log($rootUl);
 $root.lists = $rootUl;
 
+
+$root.addEventListener('click', function(e) {
+	if (e.target.tagName.toLowerCase() == 'span' && e.target.parentNode.lists.childNodes.length) {
+		e.target.parentNode.lists.classList.toggle("is-closed");
+		return;
+	}
+	if (e.target.tagName.toLowerCase() == 'li' && e.target.lists && e.target.lists.childNodes.length) {
+		e.target.lists.classList.toggle("is-closed");
+		return;
+	}
+	if (e.target.innerHTML == 'clear') {
+		console.log("delete");
+		return;
+	}
+	if (e.target.innerHTML == 'add') {
+		console.log('add link');
+		return;
+	}
+});
 
 
 

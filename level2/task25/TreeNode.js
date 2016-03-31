@@ -46,7 +46,7 @@ TreeNode.prototype = {
 		if (node.TreeNode.type == 'container') {
 			node.innerHTML = '<i class="material-icons">clear</i><span>' + node.TreeNode.name + '</span><i class="material-icons">add</i>';
 			var lists = document.createElement('ul');
-			lists.className = "lists";
+			lists.className = "lists is-closed";
 			node.lists = lists;
 			node.appendChild(lists);
 		} else {

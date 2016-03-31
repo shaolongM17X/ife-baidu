@@ -44,7 +44,7 @@ TreeNode.prototype = {
 
 	renderNode: function(node) {
 		if (node.TreeNode.type == 'container') {
-			node.innerHTML = '<i class="material-icons">clear</i><span>' + node.TreeNode.name + '</span><i class="material-icons">add</i>';
+			node.innerHTML = '<i class="material-icons">clear</i><span>' + node.TreeNode.name + '</span><i class="material-icons modal-trigger" data-target="addNewNode">add</i>';
 			var lists = document.createElement('ul');
 			lists.className = "lists is-closed";
 			node.lists = lists;
@@ -52,6 +52,10 @@ TreeNode.prototype = {
 		} else {
 			node.innerHTML = '<i class="material-icons">clear</i><a>' + node.TreeNode.name + '</a>';
 		}
+	},
+
+	remove: function(node) {
+
 	},
 };
 

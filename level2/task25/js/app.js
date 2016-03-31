@@ -20,7 +20,9 @@ $root.addEventListener('click', function(e) {
 		return;
 	}
 	if (e.target.innerHTML == 'clear') {
-		console.log("delete");
+		var $toDelete = e.target.parentNode;
+		var treeNode = $toDelete.TreeNode;
+		// treeNode.parent.children
 		return;
 	}
 	if (e.target.innerHTML == 'add') {
@@ -48,3 +50,5 @@ $root.addEventListener('click', function(e) {
 
 rootNode.addChild('container', 'nab').addChild('container','sb').addChild('container', 'ssb').addChild('link','nb');
 rootNode.addChild('container', 'nab');
+$('.modal-trigger').leanModal();
+$('select').material_select();

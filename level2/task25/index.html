@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <title>Nav Tree</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
-    <script src="TreeNode.js"></script>
+    <script src="js/TreeNode.js"></script>
     <style>
     * {
         font-family: 'Roboto', sans-serif;
@@ -72,6 +74,7 @@
     .list span,
     .list a {
         flex: 1;
+        color: white;
     }
     
     .list i,
@@ -96,6 +99,10 @@
     
     .list:hover {
         background-color: #FFC107;
+    }
+    
+    .list:hover > a,
+    .list:hover > span {
         color: black;
     }
     
@@ -146,7 +153,38 @@
         </div>
     </div>
     <img src="konosuba.jpg" alt="huihui">
-    <script src="app.js"></script>
+    <!-- Modal Structure -->
+    <div id="addNewNode" class="modal">
+        <div class="modal-content">
+            <h4>So, you wanna add a node?</h4>
+            <p>Just tell me what you want, and..</p>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="nameOfNode" type="text" class="validate">
+                            <label for="nameOfNode">Name of the Node is..</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>And you want a...</option>
+                            <option value="1">link!</option>
+                            <option value="2">Container</option>
+                            <option value="3" disabled>爆裂魔法</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Go!</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

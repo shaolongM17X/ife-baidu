@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task29 form1</title>
+    <style>
+    .form-group label {
+    	display: inline-block;
+		width: 40px;
+		text-align: right;
+    }
+
+	.form-group input[type='text'] {
+		border-radius: 2px;
+		border: 1px solid black;
+		padding: 5px;
+
+	}
+    .additions {
+    	padding-left: 40px;
+		color: grey;
+		font-size: 13px;
+    }
+	
+	.invalid-span {
+		color: red;
+	}
+
+	.valid-span {
+		color: green;
+	}
+
+	.invalid-input-field {
+		border: 2px solid red !important;
+	}
+
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+        <div>
+        	<label for="name">名字</label>
+            <input type="text" id="name">
+            <input type="button" value="验证">
+        </div>
+            <span class="additions">必填，长度为4~16个字符</span>
+        </div>
+    </form>
+    <script src="app.js"></script>
+</body>
+
+</html>

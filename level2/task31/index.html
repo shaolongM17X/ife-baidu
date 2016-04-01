@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task31</title>
+    <style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    main {
+        width: 60%;
+    }
+    
+    .inSchool {
+        display: none;
+    }
+    
+    .outOfSchool {
+        display: none;
+    }
+    
+    .row {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <form>
+            <div class="row">
+                <input type="radio" name="status" value="在校生" checked>在校生
+                <input type="radio" name="status" value="非在校生">非在校生
+            </div>
+            <div class="row inSchool">
+                <label>学校</label>
+                <select id="selectCity">
+                </select>
+                <select id="selectSchool">
+                </select>
+            </div>
+            <div class="row outOfSchool">
+                <label for="company">就职公司
+                    <input type="text" id="company" autofocus>
+                </label>
+            </div>
+        </form>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

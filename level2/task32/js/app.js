@@ -21,6 +21,7 @@ function getRequirementFromUser() {
 
 function prepareFormOfStyle(style) {
     var $generatedForm = $("#generatedFrom");
+    $generatedForm.html('');
     if (userWants($("#name-input"))) {
         addInputField(style, $generatedForm, 'name');
     }

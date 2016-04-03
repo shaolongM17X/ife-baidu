@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #FAFAFA;
+  margin: 0; }
+
+header {
+  height: 20vh;
+  width: 100%;
+  background-color: #3F51B5;
+  position: relative;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  header h1 {
+    color: white;
+    margin: 0;
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    font-weight: 100;
+    font-size: 36px; }
+
+main {
+  display: flex !important;
+  align-items: flex-start; }
+  main .form-input {
+    width: 25%;
+    height: 80vh;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    margin-right: 50px; }
+    main .form-input form ul {
+      padding: 0; }
+      main .form-input form ul li {
+        padding: 20px 40px;
+        overflow: hidden; }
+        main .form-input form ul li .float-left {
+          float: left; }
+        main .form-input form ul li .float-right {
+          float: right; }
+      main .form-input form ul .center {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px; }
+  main .form-output {
+    margin-top: -70px;
+    width: 70%; }
+    main .form-output .mdl-card {
+      width: 100%;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      padding: 20px; }
+    main .form-output .material div {
+      width: 100%; }
+
+.input-valid {
+  visibility: visible;
+  color: green; }
+
+/*# sourceMappingURL=style.css.map */

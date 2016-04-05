@@ -201,17 +201,28 @@ BinarySearchTree.prototype = {
         }
         return height_rec(this.root);
     },
+    // these three methods is used for testing
     generateRandomIntBetween: function(i, j, n) {
         var randomArr = [];
         for (var a = 0; a < n; a++) {
             randomArr.push(Math.floor(Math.random() * j) + i);
         }
         var result = [];
-        for (var a = 0; a < randomArr.length; a ++) {
-            if (result.indexOf(randomArr[a] === -1)) {
+        for (var a = 0; a < randomArr.length; a++) {
+            if (result.indexOf(randomArr[a]) === -1) {
                 result.push(randomArr[a]);
             }
         }
         return result;
+    },
+    insertIntoTree: function(arr) {
+        modal.binaryTree = new BinarySearchTree();
+        for (var i = 0; i < arr.length; i++) {
+            modal.binaryTree.add(arr[i]);
+        }
+        view.render();
+    },
+    getInOrderResultOfInsertedArr: function() {
+        console.log(modal.binaryTree.inOrder());
     },
 };

@@ -201,4 +201,17 @@ BinarySearchTree.prototype = {
         }
         return height_rec(this.root);
     },
+    generateRandomIntBetween: function(i, j, n) {
+        var randomArr = [];
+        for (var a = 0; a < n; a++) {
+            randomArr.push(Math.floor(Math.random() * j) + i);
+        }
+        var result = [];
+        for (var a = 0; a < randomArr.length; a ++) {
+            if (result.indexOf(randomArr[a] === -1)) {
+                result.push(randomArr[a]);
+            }
+        }
+        return result;
+    },
 };

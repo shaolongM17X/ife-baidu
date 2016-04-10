@@ -24,6 +24,12 @@ var controller = {
     inOrderTrav: function() {
         return modal.binaryTree.inOrder();
     },
+    preOrderTrav: function() {
+        return modal.binaryTree.preOrder();
+    },
+    postOrderTrav: function() {
+        return modal.binaryTree.postOrder();
+    },
 };
 
 var view = {
@@ -54,6 +60,37 @@ var view = {
                 scheduleAnimation($currentNode);
                 scheduleAnimation($currentNode);
             }
+            var $result = document.getElementById("result-traverse");
+            $result.innerHTML = inOrderArr;
+
+        });
+        document.getElementById("postorder-btn").addEventListener('click', function(e) {
+            e.preventDefault();
+            var inOrderArr = controller.postOrderTrav();
+            for (var i = 0; i < inOrderArr.length; i++) {
+                $currentNode = document.getElementById("value" + inOrderArr[i]);
+                scheduleAnimation($currentNode);
+                scheduleAnimation($currentNode);
+            }
+            var $result = document.getElementById("result-traverse");
+            $result.innerHTML = inOrderArr;
+        });
+        document.getElementById("preorder-btn").addEventListener('click', function(e) {
+            e.preventDefault();
+            var inOrderArr = controller.preOrderTrav();
+            for (var i = 0; i < inOrderArr.length; i++) {
+                $currentNode = document.getElementById("value" + inOrderArr[i]);
+                scheduleAnimation($currentNode);
+                scheduleAnimation($currentNode);
+            }
+            var $result = document.getElementById("result-traverse");
+            $result.innerHTML = inOrderArr;
+        });
+        var $GenerateRandomTree = document.getElementById("random-btn");
+        $GenerateRandomTree.addEventListener('click', function(e) {
+            e.preventDefault();
+            var test = new BinarySearchTree();
+            test.insertIntoTree(test.generateRandomIntBetween(0, 100, 10));
         });
     },
 

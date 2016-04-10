@@ -165,6 +165,32 @@ BinarySearchTree.prototype = {
         inOrder_rec(this.root, arr);
         return arr;
     },
+    preOrder: function() {
+        function preOrder_rec(node) {
+            if (node == null) {
+                return;
+            }
+            arr.push(node.value);
+            preOrder_rec(node.left);
+            preOrder_rec(node.right);
+        }
+        var arr = [];
+        preOrder_rec(this.root, arr);
+        return arr;
+    },
+    postOrder: function() {
+        function postOrder_rec(node) {
+            if (node == null) {
+                return;
+            }
+            postOrder_rec(node.left);
+            postOrder_rec(node.right);
+            arr.push(node.value);
+        }
+        var arr = [];
+        postOrder_rec(this.root, arr);
+        return arr;
+    },
     // return An array representation of the BST, 
     // where empty nodes are represented by null/undefined
     // I wrote a blog about this algorithm:
